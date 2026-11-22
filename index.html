@@ -4,722 +4,518 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>simaa.cake — бенто-торты в Магасе</title>
-<meta name="description" content="Маленькие тортики для больших событий. Бенто-торты в Магасе, Ингушетия. Только натуральные ингредиенты, срочные заказы, доставка.">
+<meta name="description" content="Маленькие тортики для больших событий. Бенто-торты в Магасе из натуральных ингредиентов: срочные заказы, доставка по Магасу, Сунже и Экажево.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Marck+Script&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Yeseva+One&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --cream:#fff8f3;
-    --cream-2:#fdf0e8;
-    --peach:#ffd3bd;
-    --peach-deep:#f6a98a;
-    --pink:#f7c3c6;
-    --pink-deep:#e58c98;
-    --rose:#c9677a;
-    --ink:#5b3a3f;
-    --ink-soft:#8a6a6c;
-    --line:#f1d6cc;
-    --shadow:0 18px 40px -18px rgba(181,96,98,.35);
-    --radius:28px;
-    --wrap:1120px;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;font-family:"Nunito",system-ui,sans-serif;color:var(--ink);
-    background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
-  }
-  img,svg{display:block;max-width:100%}
-  a{color:inherit}
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
-  h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.1;margin:0}
-  .script{font-family:"Marck Script",cursive;font-weight:400}
+:root{
+  --sky-1:#F4B6C6;
+  --sky-2:#F9C4C0;
+  --sky-3:#FFD3B4;
+  --glow:#FFEBD6;
+  --paper:#FFFAF7;
+  --blush:#FCE8E6;
+  --berry:#B23A5E;
+  --berry-d:#962B4C;
+  --ink:#4A2730;
+  --ink-2:#7D5A60;
+  --line:#EFCFCB;
+  --display:"Yeseva One",Georgia,serif;
+  --text:"Manrope",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:500 17px/1.6 var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1.05;letter-spacing:-.005em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--berry);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
 
-  /* ---------- header ---------- */
-  .header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s, box-shadow .3s}
-  .header.scrolled{background:rgba(255,248,243,.88);backdrop-filter:blur(10px);box-shadow:0 6px 20px -14px rgba(120,60,60,.4)}
-  .header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
-  .logo{font-family:"Marck Script",cursive;font-size:30px;text-decoration:none;color:var(--rose);line-height:1}
-  .nav{display:flex;gap:26px;font-weight:600;font-size:15px}
-  .nav a{text-decoration:none;opacity:.85;transition:opacity .2s,color .2s}
-  .nav a:hover{opacity:1;color:var(--rose)}
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    padding:13px 26px;border-radius:999px;border:0;cursor:pointer;
-    font:700 15px/1 "Nunito",sans-serif;text-decoration:none;
-    transition:transform .2s, box-shadow .2s;
-  }
-  .btn:hover{transform:translateY(-2px)}
-  .btn-main{background:linear-gradient(135deg,#f29a8e,#e47f94);color:#fff;box-shadow:0 12px 26px -12px rgba(214,98,118,.8)}
-  .btn-soft{background:rgba(255,255,255,.75);color:var(--rose);box-shadow:inset 0 0 0 1.5px rgba(201,103,122,.35)}
-  .btn-sm{padding:10px 18px;font-size:14px}
-  .btn svg{width:18px;height:18px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;
+  font:700 16px/1 var(--text);text-decoration:none;border:0;cursor:pointer;transition:background .2s, transform .2s}
+.btn:active{transform:scale(.98)}
+.btn-berry{background:var(--berry);color:#fff}
+.btn-berry:hover{background:var(--berry-d)}
+.btn-line{color:var(--ink);box-shadow:inset 0 0 0 1.5px currentColor}
+.btn-line:hover{background:rgba(255,255,255,.5)}
+.btn svg{width:20px;height:20px}
 
-  /* ---------- hero / sunset ---------- */
-  .hero{
-    position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;
-    background:linear-gradient(180deg,#fbd3cf 0%,#fcc9c2 18%,#fdc6b3 38%,#ffd5b8 56%,#ffe6cf 72%,#fff3e8 88%,var(--cream) 100%);
-    padding:110px 0 140px;
-  }
-  .sun{
-    position:absolute;left:50%;bottom:16%;width:min(62vw,560px);aspect-ratio:1;transform:translateX(-50%);
-    border-radius:50%;
-    background:radial-gradient(circle at 50% 45%,#fffaf0 0%,#ffe9cf 34%,#ffc9a8 62%,rgba(255,180,160,0) 72%);
-    filter:blur(2px);animation:sunrise 2.4s ease-out both;
-  }
-  .sun::after{content:"";position:absolute;inset:-35%;border-radius:50%;background:radial-gradient(circle,rgba(255,226,200,.75) 0%,rgba(255,210,190,0) 60%)}
-  @keyframes sunrise{from{transform:translate(-50%,18%);opacity:0}to{transform:translate(-50%,0);opacity:1}}
-  .cloud{position:absolute;border-radius:999px;background:rgba(255,255,255,.55);filter:blur(14px);animation:drift linear infinite}
-  .cloud.c1{width:340px;height:60px;top:18%;left:-10%;animation-duration:70s}
-  .cloud.c2{width:220px;height:44px;top:30%;left:60%;animation-duration:90s;animation-delay:-30s;opacity:.8}
-  .cloud.c3{width:420px;height:70px;top:9%;left:35%;animation-duration:110s;animation-delay:-60s;opacity:.6}
-  .cloud.c4{width:260px;height:48px;top:46%;left:10%;animation-duration:85s;animation-delay:-15s;opacity:.5}
-  @keyframes drift{from{transform:translateX(-20vw)}to{transform:translateX(120vw)}}
-  .hills{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:auto}
-  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;width:100%}
-  .eyebrow{
-    display:inline-block;font-weight:700;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--rose);background:rgba(255,255,255,.55);padding:8px 14px;border-radius:999px;margin-bottom:22px;
-  }
-  .hero h1{font-size:clamp(44px,6.4vw,82px);letter-spacing:-.01em}
-  .hero h1 em{font-style:italic;color:var(--rose)}
-  .hero p.lead{font-size:clamp(17px,1.6vw,19px);color:var(--ink-soft);max-width:480px;margin:22px 0 32px}
-  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-  .hero-art{position:relative;justify-self:center;width:min(100%,460px)}
-  .hero-art .cake-svg,.hero-art img{filter:drop-shadow(0 30px 30px rgba(190,100,100,.25));animation:float 6s ease-in-out infinite}
-  .hero-art img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:999px 999px 36px 36px;border:8px solid rgba(255,255,255,.75)}
-  .tag{
-    position:absolute;background:#fff;border-radius:18px;padding:10px 14px;font-size:13.5px;font-weight:700;
-    box-shadow:var(--shadow);display:flex;align-items:center;gap:8px;white-space:nowrap;animation:float 7s ease-in-out infinite;
-  }
-  .tag .dot{width:9px;height:9px;border-radius:50%;background:var(--peach-deep)}
-  .tag.t1{top:8%;left:-6%;animation-delay:-2s}
-  .tag.t2{bottom:16%;right:-4%;animation-delay:-4s}
-  .tag.t2 .dot{background:var(--pink-deep)}
-  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+/* ---------- nav ---------- */
+.nav{position:absolute;inset:0 0 auto;z-index:10}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:80px;gap:20px}
+.logo{font-family:var(--display);font-size:26px;text-decoration:none}
+.nav-links{display:flex;gap:30px;font-size:15px}
+.nav-links a{text-decoration:none}
+.nav-links a:hover{color:var(--berry)}
+.nav .btn{padding:12px 20px;font-size:15px}
 
-  /* ---------- features ---------- */
-  .features{margin-top:-70px;position:relative;z-index:3}
-  .features .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .feature{background:#fff;border-radius:22px;padding:22px;box-shadow:var(--shadow);display:flex;gap:14px;align-items:flex-start}
-  .feature .ic{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--cream-2);color:var(--rose)}
-  .feature .ic svg{width:24px;height:24px}
-  .feature b{display:block;font-size:16px;margin-bottom:2px}
-  .feature span{font-size:14.5px;color:var(--ink-soft)}
+/* ---------- hero: торт-солнце ---------- */
+.hero{position:relative;overflow:hidden;
+  background:linear-gradient(180deg,var(--sky-1) 0%,var(--sky-2) 30%,var(--sky-3) 64%,var(--glow) 86%)}
+.hero .hero-copy{position:relative;z-index:3;text-align:center;padding-top:clamp(116px,15vh,150px)}
+.hero h1{font-size:clamp(44px,6.6vw,96px);max-width:12.5em;margin:0 auto}
+.hero-sub{max-width:34em;margin:22px auto 32px;font-size:clamp(16px,1.5vw,19px);color:var(--ink-2)}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.stage{--d:min(36vw,400px);--hz:96px;position:relative;height:calc(var(--d)*.74 + var(--hz));margin-top:clamp(40px,6vh,70px)}
+.horizon{position:absolute;left:0;right:0;bottom:0;height:var(--hz);z-index:2;background:linear-gradient(180deg,#FFF1E6 0%,var(--paper) 70%)}
+.horizon::before{content:"";position:absolute;left:50%;top:0;width:calc(var(--d)*1.6);height:100%;transform:translateX(-50%);
+  background:radial-gradient(ellipse at 50% 0,rgba(255,190,165,.6),transparent 70%)}
+.sun{position:absolute;z-index:1;left:50%;bottom:calc(var(--hz) - var(--d)*.26);
+  width:var(--d);height:var(--d);margin-left:calc(var(--d)/-2);border-radius:50%;overflow:hidden;
+  box-shadow:0 0 0 12px rgba(255,238,224,.6),0 0 0 30px rgba(255,228,210,.35),0 0 140px 60px rgba(255,214,186,.8);
+  animation:rise 2.2s cubic-bezier(.2,.7,.2,1) .2s both}
+.sun img{width:100%;height:100%;object-fit:cover;object-position:55% 54%;transform:scale(1.32);transform-origin:56% 55%}
+@keyframes rise{from{transform:translateY(60%)}to{transform:none}}
+.doodle{position:absolute;z-index:1;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:.9}
+.d-cloud1{width:170px;left:5%;top:47%}
+.d-cloud2{width:120px;right:6%;top:39%}
+.d-cloud3{width:96px;right:19%;top:68%;opacity:.75}
+.d-swirl{width:44px;left:23%;top:74%;opacity:.75}
+.hero-meta{position:absolute;z-index:3;left:0;right:0;bottom:26px;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;font-size:14px;color:var(--ink-2)}
+.hero-meta a{text-decoration:none}
 
-  /* ---------- sections ---------- */
-  section{scroll-margin-top:70px}
-  .section{padding:110px 0}
-  .head{text-align:center;max-width:640px;margin:0 auto 56px}
-  .head .script{font-size:28px;color:var(--peach-deep);display:block;margin-bottom:4px}
-  .head h2{font-size:clamp(36px,4.6vw,54px)}
-  .head p{color:var(--ink-soft);margin:14px 0 0}
+/* ---------- общие секции ---------- */
+.sec{padding:120px 0}
+.sec-head{max-width:640px;margin-bottom:64px}
+.sec-head h2{font-size:clamp(38px,5vw,64px)}
+.sec-head p{margin-top:18px;color:var(--ink-2);font-size:18px}
 
-  /* ---------- catalog ---------- */
-  .catalog{background:linear-gradient(180deg,var(--cream) 0%,#fff1ea 100%)}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:end}
-  .card{
-    position:relative;background:#fff;border-radius:var(--radius);padding:28px 26px 26px;
-    box-shadow:var(--shadow);text-align:center;transition:transform .3s, box-shadow .3s;
-  }
-  .card:hover{transform:translateY(-6px);box-shadow:0 28px 50px -20px rgba(181,96,98,.45)}
-  .card.popular{background:linear-gradient(180deg,#fff 0%,#fff4ef 100%);box-shadow:0 0 0 2px #f6c2b6, var(--shadow)}
-  .badge{position:absolute;top:16px;right:16px;font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--pink);color:var(--rose);padding:6px 12px;border-radius:999px}
-  .card .art{height:190px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:14px}
-  .card .art .cake-svg{height:100%;width:auto}
-  .card .art img{height:100%;width:auto;aspect-ratio:1;object-fit:cover;border-radius:22px}
-  .card.s .art .cake-svg{height:72%}
-  .card.m .art .cake-svg{height:86%}
-  .size{font-family:"Cormorant Garamond",serif;font-size:44px;font-weight:600;color:var(--rose);line-height:1}
-  .card h3{font-size:26px;margin:2px 0 14px}
-  .specs{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:8px;font-size:15px;color:var(--ink-soft)}
-  .specs li{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding-bottom:7px}
-  .specs li b{color:var(--ink);font-weight:700}
-  .price{font-size:34px;font-weight:700;margin-bottom:18px;font-family:"Cormorant Garamond",serif}
-  .price small{font-size:18px}
-  .card .btn{width:100%}
+/* ---------- каталог ---------- */
+.sizes{display:grid;grid-template-columns:10fr 12fr 14fr;gap:clamp(20px,4vw,64px);align-items:end}
+.size{text-align:center}
+.size .top{width:100%;filter:drop-shadow(0 22px 22px rgba(178,58,94,.18))}
+.size-name{font-family:var(--display);font-size:clamp(30px,3.2vw,40px);margin-top:28px}
+.size-facts{color:var(--ink-2);font-size:15px;margin-top:4px}
+.size-price{font-family:var(--display);font-size:30px;margin:14px 0 18px}
+.size .btn{padding:13px 24px;font-size:15px}
+.size:nth-child(2) .btn{background:var(--berry);color:#fff;box-shadow:none}
 
-  .extras{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:22px;margin-top:40px}
-  .panel{background:rgba(255,255,255,.8);border-radius:24px;padding:26px 26px 24px;box-shadow:0 10px 30px -20px rgba(181,96,98,.4)}
-  .panel h3{font-size:26px;margin-bottom:14px;display:flex;align-items:center;gap:10px}
-  .panel h3 .script{font-size:22px;color:var(--peach-deep);font-family:"Marck Script",cursive;font-weight:400}
-  .chips{display:flex;flex-wrap:wrap;gap:8px}
-  .chip{background:var(--cream-2);border-radius:999px;padding:8px 14px;font-size:14.5px;font-weight:600}
-  .chip.has-info{cursor:help;background:#ffe5d6}
-  .panel .small{font-size:13.5px;color:var(--ink-soft);margin:14px 0 0}
-  .list{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15px}
-  .list li{display:flex;gap:10px;align-items:center}
-  .list li i{flex:none;width:30px;height:30px;border-radius:10px;background:var(--cream-2);display:grid;place-items:center;font-style:normal;font-size:15px}
-  .price-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px dashed var(--line);padding:8px 0;font-size:15px}
-  .price-row:last-child{border:0}
-  .price-row b{white-space:nowrap;color:var(--rose)}
+.menu{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;margin-top:100px;padding-top:56px;border-top:1.5px dashed var(--line)}
+.menu h3{font-size:30px;margin-bottom:20px}
+.menu-list{list-style:none;margin:0;padding:0}
+.menu-list li{padding:14px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;align-items:baseline}
+.menu-list li small{display:block;color:var(--ink-2);font-size:14px;margin-top:4px;max-width:32em}
+.menu-list .tag{white-space:nowrap;font-size:14px;color:var(--ink-2)}
+.menu-list .val{white-space:nowrap;font-weight:700;color:var(--berry)}
+.kit{margin-top:36px}
+.kit p{color:var(--ink-2)}
+.kit p strong{color:var(--ink)}
 
-  /* ---------- works ---------- */
-  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-  .work{
-    position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;
-    display:flex;flex-direction:column;justify-content:flex-end;box-shadow:var(--shadow);transition:transform .3s;
-  }
-  .work:hover{transform:translateY(-6px) rotate(-.6deg)}
-  .work .pic{position:absolute;inset:0;display:grid;place-items:center;padding:14% 10% 32%}
-  .work .pic .cake-svg{width:100%}
-  .work .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .work .cap{position:relative;margin:12px;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);border-radius:16px;padding:11px 14px}
-  .work .cap b{display:block;font-size:15px;line-height:1.3}
-  .work .cap span{font-size:13px;color:var(--ink-soft)}
-  .bg1{background:linear-gradient(160deg,#ffe3d6,#fbc9c4)}
-  .bg2{background:linear-gradient(160deg,#fde6ee,#f6c6d0)}
-  .bg3{background:linear-gradient(160deg,#fff1e2,#ffd2b8)}
-  .bg4{background:linear-gradient(160deg,#e9f1fb,#cfdff2)}
-  .bg5{background:linear-gradient(160deg,#e3e5f5,#b9bfe3)}
-  .also{
-    margin-top:30px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
-    background:linear-gradient(120deg,#f6a98a,#e58c98);color:#fff;border-radius:28px;padding:26px 30px;box-shadow:var(--shadow);
-  }
-  .also .script{font-size:30px;line-height:1}
-  .also p{margin:6px 0 0;opacity:.95}
-  .also .btn{background:#fff;color:var(--rose)}
+/* ---------- работы ---------- */
+.works{background:var(--blush)}
+.works-grid{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:24px;align-items:start}
+.photo{margin:0}
+.photo img{width:100%;border-radius:20px;object-fit:cover}
+.photo.tall img{aspect-ratio:3/5}
+.photo.mid img{aspect-ratio:4/5}
+.photo.mid{margin-top:90px}
+.photo figcaption{margin-top:12px;font-size:15px;color:var(--ink-2)}
+.inscriptions h3{font-size:28px;margin-bottom:8px}
+.inscriptions > p{color:var(--ink-2);font-size:15px;margin-bottom:24px}
+.wall{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 10px}
+.wall .top{filter:drop-shadow(0 10px 10px rgba(120,40,60,.15));transition:transform .25s}
+.wall .top:nth-child(3n+1){transform:rotate(-6deg)}
+.wall .top:nth-child(3n+2){transform:rotate(4deg) translateY(10px)}
+.wall .top:nth-child(3n){transform:rotate(-2deg)}
+.wall .top:hover{transform:scale(1.12) rotate(0)}
+.also{margin-top:64px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.also p{max-width:40em}
 
-  /* ---------- process ---------- */
-  .process{background:linear-gradient(180deg,#fff1ea 0%,#ffe6dc 50%,var(--cream) 100%)}
-  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-  .stage{background:#fff;border-radius:26px;padding:26px 22px 24px;box-shadow:var(--shadow);position:relative}
-  .stage .num{
-    width:56px;height:56px;border-radius:50%;display:grid;place-items:center;margin-bottom:16px;
-    background:linear-gradient(135deg,var(--peach),var(--pink));color:#fff;font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:600;
-  }
-  .stage h3{font-size:25px;margin-bottom:8px}
-  .stage p{margin:0 0 16px;font-size:15px;color:var(--ink-soft)}
-  .stage blockquote{
-    margin:0;font-family:"Marck Script",cursive;font-size:19px;line-height:1.3;color:var(--rose);
-    padding-top:14px;border-top:1px dashed var(--line);
-  }
-  .stage .photo{margin:-26px -22px 18px;border-radius:26px 26px 0 0;overflow:hidden;aspect-ratio:4/3}
-  .stage .photo img{width:100%;height:100%;object-fit:cover}
-  .story{
-    margin:50px auto 0;max-width:760px;text-align:center;
-  }
-  .story q{font-family:"Marck Script",cursive;font-size:clamp(24px,3vw,32px);color:var(--ink);line-height:1.35;quotes:"«" "»"}
-  .story span{display:block;margin-top:10px;color:var(--ink-soft);font-size:14.5px}
+/* ---------- процесс: из заката в сумерки ---------- */
+.process{background:linear-gradient(180deg,var(--blush) 0%,#F6D7DF 45%,#E7D2E6 100%)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;list-style:none;margin:0;padding:0;counter-reset:step}
+.steps li{counter-increment:step;border-top:1.5px solid rgba(74,39,48,.25);padding-top:22px}
+.steps li::before{content:counter(step);display:block;font-family:var(--display);font-size:56px;line-height:1;color:var(--berry);margin-bottom:18px}
+.steps h3{font-size:26px;margin-bottom:10px}
+.steps p{color:var(--ink-2);font-size:15.5px}
+.steps q{display:block;margin-top:14px;font-style:italic;font-size:15px;color:var(--ink)}
+.night{text-align:center;padding-top:110px}
+.night svg{width:56px;margin:0 auto 22px;fill:none;stroke:var(--berry);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.night p{font-family:var(--display);font-size:clamp(28px,3.6vw,46px);line-height:1.2;max-width:16em;margin:0 auto}
+.night small{display:block;margin-top:14px;color:var(--ink-2);font-size:14px}
 
-  /* ---------- reviews ---------- */
-  .reviews{position:relative;overflow:hidden;background:
-    radial-gradient(ellipse at 15% 20%,rgba(255,211,189,.45),transparent 50%),
-    radial-gradient(ellipse at 85% 70%,rgba(247,195,198,.45),transparent 50%),var(--cream)}
-  .bubbles{position:relative;min-height:400px}
-  .bubble{
-    position:absolute;padding:20px 22px 16px;border-radius:26px;background:#fff;box-shadow:var(--shadow);
-    transform:rotate(var(--r));animation:bob 7s ease-in-out infinite;animation-delay:var(--d);
-    transition:box-shadow .3s;
-  }
-  .bubble:hover{z-index:5;box-shadow:0 26px 50px -18px rgba(181,96,98,.5)}
-  .bubble::after{
-    content:"";position:absolute;bottom:-11px;left:var(--tail,30px);width:24px;height:24px;background:inherit;
-    clip-path:polygon(0 0,100% 0,15% 100%);
-  }
-  .bubble.peach{background:#ffe5d6}
-  .bubble.pink{background:#fde1e4}
-  .bubble p{margin:0 0 10px;font-size:15.5px;line-height:1.5}
-  .bubble p::before{content:"“";font-family:"Cormorant Garamond",serif;font-size:42px;line-height:0;vertical-align:-14px;color:var(--peach-deep);margin-right:4px}
-  .bubble .who{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--ink-soft)}
-  .bubble .who svg{width:16px;height:16px;opacity:.7}
-  @keyframes bob{0%,100%{transform:rotate(var(--r)) translateY(0)}50%{transform:rotate(var(--r)) translateY(-8px)}}
+/* ---------- отзывы ---------- */
+.reviews{background:linear-gradient(180deg,#E7D2E6 0%,var(--paper) 34%)}
+.bubbles{position:relative}
+.msg{position:absolute;padding:16px 20px;border-radius:22px 22px 22px 6px;background:#fff;
+  box-shadow:0 1px 0 rgba(74,39,48,.06),0 14px 30px -18px rgba(120,40,60,.35);transform:rotate(var(--r));font-size:16px;line-height:1.5}
+.msg.pink{background:#FBDDE3}
+.msg.peach{background:#FFE4D2}
+.msg cite{display:block;margin-top:8px;font-style:normal;font-size:13px;color:var(--ink-2)}
 
-  /* ---------- contact ---------- */
-  .contact{padding:0 0 90px}
-  .contact-box{
-    position:relative;overflow:hidden;border-radius:36px;padding:64px 40px 56px;text-align:center;
-    background:linear-gradient(180deg,#fbd3cf 0%,#fdc6b3 45%,#ffe2c8 100%);box-shadow:var(--shadow);
-  }
-  .contact-box .sun{top:auto;bottom:-75%;width:600px;animation:none;opacity:.9}
-  .contact-box > :not(.sun){position:relative}
-  .contact-box h2{font-size:clamp(34px,4.4vw,52px)}
-  .contact-box > p{color:var(--ink);opacity:.8;max-width:540px;margin:14px auto 30px}
-  .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .howto{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:40px auto 0;max-width:900px;text-align:left}
-  .howto div{background:rgba(255,255,255,.65);border-radius:20px;padding:16px 16px 14px;font-size:14.5px}
-  .howto b{display:block;font-family:"Cormorant Garamond",serif;font-size:22px;color:var(--rose);line-height:1;margin-bottom:6px}
-  .delivery{margin-top:22px;font-size:15px}
-  footer{text-align:center;padding:26px 20px 40px;font-size:14px;color:var(--ink-soft)}
-  footer .logo{font-size:26px}
+/* ---------- заказ ---------- */
+.order{position:relative;overflow:hidden;text-align:center;
+  background:linear-gradient(180deg,var(--paper) 0%,var(--glow) 30%,var(--sky-3) 62%,var(--sky-1) 100%)}
+.order h2{font-size:clamp(40px,5.6vw,76px);max-width:11em;margin:0 auto}
+.order > .wrap > p{max-width:34em;margin:22px auto 34px;color:var(--ink-2);font-size:18px}
+.how{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;list-style:none;padding:0;margin:72px auto 0;max-width:980px;text-align:left;counter-reset:h}
+.how li{counter-increment:h;font-size:15.5px;border-top:1.5px solid rgba(74,39,48,.25);padding-top:14px}
+.how li::before{content:counter(h);font-family:var(--display);font-size:26px;color:var(--berry);display:block;margin-bottom:6px}
+.delivery{margin-top:56px;font-size:15.5px}
+footer{background:var(--sky-1);text-align:center;padding:0 24px 34px;font-size:14px;color:var(--ink-2)}
+footer .logo{color:var(--ink);font-size:22px}
 
-  /* ---------- reveal ---------- */
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease, transform .8s ease}
-  .reveal.in{opacity:1;transform:none}
-
-  /* ---------- responsive ---------- */
-  @media (max-width:980px){
-    .nav{display:none}
-    .hero .wrap{grid-template-columns:1fr;text-align:center}
-    .hero p.lead{margin-left:auto;margin-right:auto}
-    .hero-actions{justify-content:center}
-    .hero-art{width:min(78%,340px);order:-1}
-    .features .wrap{grid-template-columns:1fr}
-    .features{margin-top:-50px}
-    .cards{grid-template-columns:1fr;max-width:420px;margin:0 auto}
-    .extras{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}
-    .gallery{grid-template-columns:repeat(2,1fr)}
-    .stages{grid-template-columns:repeat(2,1fr)}
-    .howto{grid-template-columns:repeat(2,1fr)}
-    .bubbles{display:flex;flex-direction:column;gap:30px;padding:10px 0 20px}
-    .bubble{position:relative;max-width:440px}
-    .bubble:nth-child(odd){align-self:flex-start;margin-left:2%}
-    .bubble:nth-child(even){align-self:flex-end;margin-right:2%}
-  }
-  @media (max-width:560px){
-    .wrap{padding:0 16px}
-    .section{padding:80px 0}
-    .header .btn span{display:none}
-    .header .btn{padding:10px 12px}
-    .hero{padding:96px 0 120px}
-    .gallery{gap:12px}
-    .work .cap{margin:8px;padding:8px 10px}
-    .work .cap b{font-size:13.5px}
-    .work .cap span{font-size:12px}
-    .stages{grid-template-columns:1fr}
-    .howto{grid-template-columns:1fr}
-    .contact-box{padding:48px 18px;border-radius:28px}
-    .tag{font-size:12px;padding:8px 10px}
-    .tag.t1{left:-12%}
-    .tag.t2{right:-12%}
-    .also{padding:22px}
-  }
-  @media (prefers-reduced-motion:reduce){
-    *,*::before,*::after{animation:none !important;transition:none !important}
-    .reveal{opacity:1;transform:none}
-  }
+/* ---------- адаптив ---------- */
+@media (max-width:960px){
+  .nav-links{display:none}
+  .works-grid{grid-template-columns:1fr 1fr}
+  .inscriptions{grid-column:1/-1;margin-top:40px}
+  .steps{grid-template-columns:1fr 1fr;row-gap:48px}
+  .menu{grid-template-columns:1fr;gap:48px}
+  .how{grid-template-columns:1fr 1fr}
+  .bubbles{display:flex;flex-direction:column;gap:18px}
+  .msg{position:relative;max-width:88%}
+  .msg:nth-child(even){align-self:flex-end;border-radius:22px 22px 6px 22px}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .wrap{padding:0 18px}
+  .sec{padding:84px 0}
+  .nav .btn span{display:none}
+  .nav .btn{padding:11px}
+  .stage{--d:72vw;--hz:80px}
+  .d-cloud1{width:100px;left:-6%;top:64%}
+  .d-cloud2{width:84px;right:-5%;top:58%}
+  .d-cloud3,.d-swirl{display:none}
+  .hero-meta{gap:14px;font-size:13px;bottom:14px}
+  .sizes{gap:12px}
+  .size-name{font-size:21px;margin-top:16px}
+  .size-facts{font-size:12px;line-height:1.4}
+  .size-price{font-size:22px}
+  .size .btn{padding:10px 11px;font-size:13px;white-space:nowrap}
+  .works-grid{grid-template-columns:1fr}
+  .photo.mid{margin-top:0}
+  .steps,.how{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .sun{animation:none}
+  html{scroll-behavior:auto}
+  .wall .top{transition:none}
+}
 </style>
 </head>
 <body>
 
-<header class="header" id="top">
+<nav class="nav" aria-label="Главное меню">
   <div class="wrap">
-    <a href="#top" class="logo">simaa.cake</a>
-    <nav class="nav">
-      <a href="#catalog">Каталог</a>
+    <a href="#" class="logo">simaa.cake</a>
+    <div class="nav-links">
+      <a href="#sizes">Цены</a>
       <a href="#works">Работы</a>
       <a href="#process">Процесс</a>
       <a href="#reviews">Отзывы</a>
-      <a href="#contact">Контакты</a>
-    </nav>
-    <a class="btn btn-main btn-sm" href="https://wa.me/79674094319" target="_blank" rel="noopener" data-wa>
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.3-.3-.3-.6-.4Z"/></svg>
+    </div>
+    <a class="btn btn-berry" href="https://wa.me/79674094319" data-wa target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.3-.3-.3-.6-.4Z"/></svg>
       <span>Заказать</span>
     </a>
   </div>
+</nav>
+
+<!-- ============ ЗАСТАВКА ============ -->
+<header class="hero">
+  <svg class="doodle d-cloud1" viewBox="0 0 170 70" aria-hidden="true"><path d="M20 58c-12 0-16-16-4-21 0-13 17-18 25-9 5-14 27-15 32-1 9-8 25-3 25 10 13-2 20 15 7 21H20Z"/><path d="M118 58h34"/></svg>
+  <svg class="doodle d-cloud2" viewBox="0 0 120 56" aria-hidden="true"><path d="M14 46c-10 0-12-13-2-16 1-11 15-14 21-6 5-12 24-11 26 1 11-4 21 6 16 15 10 1 12 6 8 6H14Z"/></svg>
+  <svg class="doodle d-cloud3" viewBox="0 0 90 44" aria-hidden="true"><path d="M12 36c-8 0-9-10-2-12 1-9 12-11 17-5 4-9 19-9 21 1 9-3 17 5 12 11 7 1 9 5 6 5H12Z"/></svg>
+  <svg class="doodle d-swirl" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 22c0-3 4-3 4 0 0 5-8 5-8 0 0-7 12-7 12 0 0 9-16 9-16 0 0-11 20-11 20 0"/></svg>
+
+  <div class="wrap hero-copy">
+    <h1>Маленькие тортики для больших событий</h1>
+    <p class="hero-sub">Бенто-торты в Магасе из натуральных ингредиентов. Пишу надписи, рисую кремом и успеваю к срочным праздникам.</p>
+    <div class="hero-cta">
+      <a class="btn btn-berry" href="https://wa.me/79674094319" data-wa target="_blank" rel="noopener">Заказать в WhatsApp</a>
+      <a class="btn btn-line" href="#sizes">Цены от 1 300 ₽</a>
+    </div>
+  </div>
+
+  <div class="stage">
+  <div class="sun"><img src="photos/hero.jpg" alt="Розовый бенто-торт, расписанный кремом: облака, солнце, радуга и надпись «Добро пожаловать домой»"></div>
+    <div class="horizon">
+  <div class="hero-meta">
+    <span>Магас, Ингушетия</span>
+    <a href="https://instagram.com/simaa.cake" target="_blank" rel="noopener">@simaa.cake</a>
+    <a href="tel:+79674094319">+7 967 409-43-19</a>
+  </div>
+    </div>
+  </div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="sun"></div>
-  <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div>
+<main>
+<!-- ============ РАЗМЕРЫ И ЦЕНЫ ============ -->
+<section class="sec" id="sizes">
   <div class="wrap">
-    <div>
-      <span class="eyebrow">Бенто · Магас · Ингушетия</span>
-      <h1>Маленькие тортики для&nbsp;<em>больших</em> событий</h1>
-      <p class="lead">Бенто-торты ручной работы только из натуральных ингредиентов. На день рождения, годик малыша, для мамы, сестры или просто так. Принимаю срочные заказы.</p>
-      <div class="hero-actions">
-        <a href="#catalog" class="btn btn-main">Смотреть каталог</a>
-        <a href="https://wa.me/79674094319" target="_blank" rel="noopener" class="btn btn-soft" data-wa>Написать в WhatsApp</a>
-      </div>
-    </div>
-    <div class="hero-art">
-      <div data-photo="photos/hero.jpg" data-alt="Розовый бенто-торт с надписью «Добро пожаловать домой» в фирменной коробке simaa.cake" data-cake='{"cake":"#f9c9c6","top":"#fde4de","text":"love you","deco":"bigheart"}'></div>
-      <div class="tag t1"><i class="dot"></i>Только натуральные ингредиенты</div>
-      <div class="tag t2"><i class="dot"></i>Срочные заказы</div>
-    </div>
-  </div>
-  <svg class="hills" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 90 C 240 40, 420 120, 720 80 S 1200 30, 1440 70 V160 H0Z" fill="#fff3ea" opacity=".7"/>
-    <path d="M0 120 C 300 80, 520 150, 820 115 S 1260 85, 1440 110 V160 H0Z" fill="#fff8f3"/>
-  </svg>
-</section>
-
-<!-- ============ FEATURES ============ -->
-<div class="features">
-  <div class="wrap">
-    <div class="feature reveal">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-9 0 12-4 16-9 16Z"/><path d="M4 20c4-4 7-6 11-8"/></svg></div>
-      <div><b>Только натуральное</b><span>Бисквиты, кремы, курд и карамель готовлю сама</span></div>
-    </div>
-    <div class="feature reveal">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M9 2h6"/></svg></div>
-      <div><b>Срочные заказы</b><span>Нужен тортик уже сегодня? Напишите, всего +100 ₽</span></div>
-    </div>
-    <div class="feature reveal">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></div>
-      <div><b>Доставка</b><span>По Магасу, в Сунжу, Экажево и не только</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- ============ CATALOG ============ -->
-<section class="section catalog" id="catalog">
-  <div class="wrap">
-    <div class="head reveal">
-      <span class="script">прайс</span>
-      <h2>Каталог бенто</h2>
-      <p>Три размера: от тортика на двоих до праздника на всю семью. Любая начинка на выбор без доплаты.</p>
+    <div class="sec-head">
+      <h2>Три размера</h2>
+      <p>Нарисованы в настоящей пропорции: 10, 12 и 14 сантиметров. Любая начинка на выбор без доплаты.</p>
     </div>
 
-    <div class="cards">
-      <article class="card s reveal">
-        <div class="art"><div data-cake='{"cake":"#fde0d2","top":"#fff0e8","text":"S","deco":"dots"}'></div></div>
-        <div class="size">S</div>
-        <h3>Бенто S</h3>
-        <ul class="specs">
-          <li>Вес <b>400–500 г</b></li>
-          <li>Диаметр <b>10 см</b></li>
-          <li>Порции <b>на 1–2 человек</b></li>
-        </ul>
-        <div class="price">1 300 <small>₽</small></div>
-        <a class="btn btn-soft" href="#" data-order="Бенто S">Заказать</a>
-      </article>
-
-      <article class="card m popular reveal">
-        <span class="badge">ХИТ</span>
-        <div class="art"><div data-cake='{"cake":"#f9c9c6","top":"#fde4de","text":"M","deco":"cherry"}'></div></div>
-        <div class="size">M</div>
-        <h3>Бенто M</h3>
-        <ul class="specs">
-          <li>Вес <b>500–600 г</b></li>
-          <li>Диаметр <b>12 см</b></li>
-          <li>Порции <b>на 3–4 человек</b></li>
-        </ul>
-        <div class="price">1 500 <small>₽</small></div>
-        <a class="btn btn-main" href="#" data-order="Бенто M">Заказать</a>
-      </article>
-
-      <article class="card l reveal">
-        <div class="art"><div data-cake='{"cake":"#ffd9bf","top":"#ffeadb","text":"L","deco":"hearts"}'></div></div>
-        <div class="size">L</div>
-        <h3>Бенто L</h3>
-        <ul class="specs">
-          <li>Вес <b>1–1,3 кг</b></li>
-          <li>Диаметр <b>14 см</b></li>
-          <li>Порции <b>на 5+ человек</b></li>
-        </ul>
-        <div class="price">1 700 <small>₽</small></div>
-        <a class="btn btn-soft" href="#" data-order="Бенто L">Заказать</a>
-      </article>
-    </div>
-
-    <div class="extras">
-      <div class="panel reveal">
-        <h3>Начинки <span class="script">на выбор</span></h3>
-        <div class="chips">
-          <span class="chip">🍓 Клубника-ваниль</span>
-          <span class="chip">🍌 Банан-шоколад</span>
-          <span class="chip">💚 Фисташка-малина</span>
-          <span class="chip has-info" title="Шоколадный бисквит, мягкая сливочная карамель, арахис, сливочный крем-чиз, шоколад">🥜 Сникерс</span>
-          <span class="chip">🥛 Молочный ломтик</span>
-        </div>
-        <p class="small"><b>Сникерс:</b> шоколадный бисквит, мягкая сливочная карамель, арахис, сливочный крем-чиз, шоколад.</p>
+    <div class="sizes">
+      <div class="size">
+        <div data-top='{"fill":"#FFD9C6","pipe":"#fff","ink":"#C55E58","text":"S","doodles":["heart@60,64","swirl@140,138"]}'></div>
+        <div class="size-name">Бенто S</div>
+        <div class="size-facts">400–500 г, на 1–2 человек</div>
+        <div class="size-price">1 300 ₽</div>
+        <a class="btn btn-line" href="#" data-order="Бенто S">Заказать S</a>
       </div>
-      <div class="panel reveal">
-        <h3>В комплекте</h3>
-        <ul class="list">
-          <li><i>🕯️</i>Свечка</li>
-          <li><i>💌</i>Визитка с цитатой</li>
-          <li><i>🥄</i>Ложечка</li>
-          <li><i>🎀</i>Пакетик и лента</li>
-        </ul>
+      <div class="size">
+        <div data-top='{"fill":"#F7B9C6","pipe":"#fff","ink":"#fff","text":"M","doodles":["cloud@52,60","heart@146,64","rainbow@100,150"]}'></div>
+        <div class="size-name">Бенто M</div>
+        <div class="size-facts">500–600 г, на 3–4 человек</div>
+        <div class="size-price">1 500 ₽</div>
+        <a class="btn btn-line" href="#" data-order="Бенто M">Заказать M</a>
       </div>
-      <div class="panel reveal">
-        <h3>Дополнительно</h3>
-        <div class="price-row"><span>Срочный заказ</span><b>+100 ₽</b></div>
-        <div class="price-row"><span>Сложный дизайн</span><b>от +100 ₽</b></div>
-        <p class="small">Стоимость сложного дизайна зависит от сложности, рассчитаю в переписке.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ WORKS ============ -->
-<section class="section" id="works">
-  <div class="wrap">
-    <div class="head reveal">
-      <span class="script">портфолио</span>
-      <h2>Примеры работ</h2>
-      <p>Надписи, рисунки, стиль Ламбет, фотопечать. Каждый тортик делаю под ваш повод.</p>
-    </div>
-
-    <!-- ФОТО: в каждую .pic можно вставить <img src="photos/....jpg" alt="..."> вместо data-cake -->
-    <div class="gallery">
-      <div class="work bg2 reveal">
-        <div class="pic"><div data-photo="photos/work-mame-flowers.jpg" data-alt="Белый бенто «Маме» в коробке с розами и гортензией" data-cake='{"cake":"#fffaf3","top":"#ffffff","cream":"#fff6ea","text":"Маме","deco":"none","ink":"#b99a6a"}'></div></div>
-        <div class="cap"><b>«Маме» с цветами</b><span>Бенто и букет в одной коробке</span></div>
-      </div>
-      <div class="work bg3 reveal">
-        <div class="pic"><div data-photo="photos/work-desserts.jpg" data-alt="Набор из четырёх десертов в белом шоколаде с надписью «Маме»" data-cake='{"cake":"#f4f1dc","top":"#fbf8ea","text":"Маме","deco":"hearts","ink":"#c9a24a"}'></div></div>
-        <div class="cap"><b>Набор десертов «Маме»</b><span>В белом шоколаде с золотом</span></div>
-      </div>
-      <div class="work bg2 reveal">
-        <div class="pic"><div data-cake='{"cake":"#fbd0d6","top":"#fff","text":"16","deco":"lambeth","ink":"#e0607a"}'></div></div>
-        <div class="cap"><b>Ламбет «16»</b><span>Рюши и розовые банты</span></div>
-      </div>
-      <div class="work bg4 reveal">
-        <div class="pic"><div data-cake='{"cake":"#cfe3f5","top":"#eaf3fc","text":"1 месяц","deco":"dots","ink":"#5a86b5"}'></div></div>
-        <div class="cap"><b>«1 месяц»</b><span>Для малышей</span></div>
-      </div>
-      <div class="work bg1 reveal">
-        <div class="pic"><div data-cake='{"cake":"#fff4ef","top":"#ffffff","text":"love you","deco":"bigheart","ink":"#d9475e"}'></div></div>
-        <div class="cap"><b>«love you»</b><span>С красным сердцем</span></div>
-      </div>
-      <div class="work bg5 reveal">
-        <div class="pic"><div data-cake='{"cake":"#2f3a6b","top":"#3d4a86","cream":"#f3f1ff","text":"мой космос|35","deco":"stars","ink":"#f6d98e"}'></div></div>
-        <div class="cap"><b>«Мой космос 35»</b><span>День рождения</span></div>
-      </div>
-      <div class="work bg3 reveal">
-        <div class="pic"><div data-cake='{"cake":"#ffe0cf","top":"#fff3ea","text":"Мама, спасибо|что ты есть","deco":"hearts","ink":"#d9475e"}'></div></div>
-        <div class="cap"><b>«Мама, спасибо, что ты есть»</b><span>С красными сердечками</span></div>
-      </div>
-      <div class="work bg2 reveal">
-        <div class="pic"><div data-cake='{"cake":"#ffffff","top":"#fff7f8","text":"Справка|хронический воздухан","ink":"#6b5a5c","deco":"none"}'></div></div>
-        <div class="cap"><b>«Справка. Хронический воздухан»</b><span>С юмором</span></div>
+      <div class="size">
+        <div data-top='{"fill":"#FFF6F0","pipe":"#F3B7C3","ink":"#B23A5E","text":"L","doodles":["sun@56,58","cloud@146,62","heart@58,140","swirl@144,142"]}'></div>
+        <div class="size-name">Бенто L</div>
+        <div class="size-facts">1–1,3 кг, на 5 человек и больше</div>
+        <div class="size-price">1 700 ₽</div>
+        <a class="btn btn-line" href="#" data-order="Бенто L">Заказать L</a>
       </div>
     </div>
 
-    <div class="also reveal">
+    <div class="menu">
       <div>
-        <div class="script">а ещё…</div>
-        <p>Трайфлы, кукис, меренговый рулет, дубайские десерты и мини-торт «в горшке» с цветком любого цвета</p>
+        <h3>Начинки</h3>
+        <ul class="menu-list">
+          <li><span>Клубника-ваниль</span></li>
+          <li><span>Банан-шоколад</span></li>
+          <li><span>Фисташка-малина</span></li>
+          <li><span>Сникерс<small>Шоколадный бисквит, мягкая сливочная карамель, арахис, сливочный крем-чиз, шоколад</small></span></li>
+          <li><span>Молочный ломтик</span></li>
+        </ul>
       </div>
-      <a class="btn" href="https://instagram.com/simaa.cake" target="_blank" rel="noopener">Все работы в Instagram</a>
+      <div>
+        <h3>Доплаты</h3>
+        <ul class="menu-list">
+          <li><span>Срочный заказ</span><span class="val">+100 ₽</span></li>
+          <li><span>Сложный дизайн<small>Цена зависит от сложности, посчитаю в переписке</small></span><span class="val">от +100 ₽</span></li>
+        </ul>
+        <div class="kit">
+          <h3>В каждой коробке</h3>
+          <p><strong>Свечка, ложечка, визитка с цитатой, пакетик и лента.</strong> Ничего докупать не нужно, тортик сразу готов к вручению.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PROCESS ============ -->
-<section class="section process" id="process">
+<!-- ============ РАБОТЫ ============ -->
+<section class="sec works" id="works">
   <div class="wrap">
-    <div class="head reveal">
-      <span class="script">за кадром</span>
-      <h2>Как рождается тортик</h2>
-      <p>Всё делаю сама: от бисквита до последней надписи кремом</p>
+    <div class="sec-head">
+      <h2>Работы</h2>
+      <p>Тортики для мамы, сестры, на годик малыша, на день рождения или просто так.</p>
     </div>
-    <!-- ФОТО: в каждый .stage можно добавить <div class="photo"><img src="photos/process-1.jpg" alt=""></div> первым элементом -->
-    <div class="stages">
-      <div class="stage reveal">
-        <div class="num">1</div>
-        <h3>Выпечка</h3>
-        <p>Пеку бисквиты под каждый заказ: шоколадные, ванильные, мини-бисквиты под бенто.</p>
-        <blockquote>«Сегодня будет день заготовок»</blockquote>
+
+    <div class="works-grid">
+      <figure class="photo tall">
+        <img src="photos/work-mame-flowers.jpg" alt="Белый бенто с надписью «Маме» в коробке с розами и гортензией" loading="lazy">
+        <figcaption>«Маме» в коробке с живыми цветами</figcaption>
+      </figure>
+      <figure class="photo mid">
+        <img src="photos/work-desserts.jpg" alt="Четыре десерта в белом шоколаде с сердечком, цветком и надписью «Маме»" loading="lazy">
+        <figcaption>Набор десертов в белом шоколаде</figcaption>
+      </figure>
+      <div class="inscriptions">
+        <h3>Надпись может быть любой</h3>
+        <p>Вот что уже выводила кремом по просьбе заказчиков:</p>
+        <div class="wall" id="wall"></div>
       </div>
-      <div class="stage reveal">
-        <div class="num">2</div>
+    </div>
+
+    <div class="also">
+      <p>Ещё готовлю трайфлы, кукис, меренговый рулет, дубайские десерты и мини-торт «в горшке» с цветком любого цвета.</p>
+      <a class="btn btn-line" href="https://instagram.com/simaa.cake" target="_blank" rel="noopener">Все работы в Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ПРОЦЕСС ============ -->
+<section class="sec process" id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>От бисквита до надписи</h2>
+      <p>Всё делаю сама, под каждый заказ.</p>
+    </div>
+    <ol class="steps">
+      <li>
+        <h3>Выпечка</h3>
+        <p>Шоколадные и ванильные бисквиты, отдельный мини-бисквит под бенто.</p>
+        <q>Сегодня будет день заготовок</q>
+      </li>
+      <li>
         <h3>Кремы и начинки</h3>
         <p>Ванильный ганаш, крем на тёмном шоколаде, лимонный курд, солёная карамель, свежая клубника.</p>
-        <blockquote>«Столько попыток было… Карамель получилась»</blockquote>
-      </div>
-      <div class="stage reveal">
-        <div class="num">3</div>
+        <q>Столько попыток было, чтоб приготовить солёную карамель</q>
+      </li>
+      <li>
         <h3>Сборка</h3>
-        <p>Собираю слоями и оставляю на стабилизацию, чтобы тортик держал форму и красиво доехал.</p>
-        <blockquote>«Собрала и на стабилизацию»</blockquote>
-      </div>
-      <div class="stage reveal">
-        <div class="num">4</div>
+        <p>Собираю слоями и оставляю на стабилизацию, чтобы тортик держал форму в дороге.</p>
+        <q>Собрала и на стабилизацию</q>
+      </li>
+      <li>
         <h3>Украшение</h3>
-        <p>Выравниваю, рисую кремом, вывожу надписи. Ламбет, рисунки по вашей идее, фотопечать.</p>
-        <blockquote>«Процесс рисования на бенто»</blockquote>
-      </div>
-    </div>
-    <div class="story reveal">
-      <q>Наступила ночь, это значит, что пришло время готовок!</q>
-      <span>из сторис simaa.cake</span>
+        <p>Выравниваю, рисую кремом, вывожу надписи. Ламбет с бантами, рисунки по вашей идее, фотопечать.</p>
+        <q>Процесс рисования на бенто</q>
+      </li>
+    </ol>
+
+    <div class="night">
+      <svg viewBox="0 0 56 56" aria-hidden="true"><path d="M36 10a18 18 0 1 0 10 28A16 16 0 0 1 36 10Z"/><path d="M44 12v6M41 15h6M14 14v4M12 16h4"/></svg>
+      <p>«Наступила ночь, это значит, что пришло время готовок!»</p>
+      <small>из сторис simaa.cake</small>
     </div>
   </div>
 </section>
 
-<!-- ============ REVIEWS ============ -->
-<section class="section reviews" id="reviews">
+<!-- ============ ОТЗЫВЫ ============ -->
+<section class="sec reviews" id="reviews">
   <div class="wrap">
-    <div class="head reveal">
-      <span class="script">тёплые слова</span>
-      <h2>Отзывы</h2>
-      <p>Сообщения от заказчиков из хайлайта «Отзывы»</p>
+    <div class="sec-head">
+      <h2>Что пишут после праздника</h2>
+      <p>Сообщения заказчиков из Директа, как есть.</p>
     </div>
     <div class="bubbles" id="bubbles"></div>
   </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
-<section class="contact" id="contact">
+<!-- ============ ЗАКАЗ ============ -->
+<section class="sec order" id="order">
   <div class="wrap">
-    <div class="contact-box reveal">
-      <div class="sun"></div>
-      <span class="script" style="font-size:28px;color:var(--rose)">закажите свой тортик</span>
-      <h2>Сделаем ваш праздник слаще</h2>
-      <p>Пишите в WhatsApp или в Директ Instagram: расскажите о поводе, выберите размер и начинку, а дизайн придумаем вместе.</p>
-      <div class="contact-links">
-        <a class="btn btn-main" href="https://wa.me/79674094319" target="_blank" rel="noopener" data-wa>WhatsApp: +7 967 409-43-19</a>
-        <a class="btn btn-soft" href="https://instagram.com/simaa.cake" target="_blank" rel="noopener">Instagram @simaa.cake</a>
-      </div>
-      <div class="howto">
-        <div><b>1</b>Напишите в WhatsApp или Директ</div>
-        <div><b>2</b>Выберите размер, начинку и дизайн</div>
-        <div><b>3</b>Я приготовлю тортик к нужной дате</div>
-        <div><b>4</b>Получите заказ с доставкой</div>
-      </div>
-      <p class="delivery">📍 Магас, Ингушетия · 🚗 Доставка по Магасу, в Сунжу, Экажево. Стоимость уточняйте при заказе.</p>
+    <h2>Расскажите, какой будет праздник</h2>
+    <p>Напишите повод и дату, выберите размер и начинку. Дизайн придумаем вместе.</p>
+    <div class="hero-cta">
+      <a class="btn btn-berry" href="https://wa.me/79674094319" data-wa target="_blank" rel="noopener">Написать в WhatsApp</a>
+      <a class="btn btn-line" href="https://instagram.com/simaa.cake" target="_blank" rel="noopener">Директ Instagram</a>
     </div>
+    <ol class="how">
+      <li>Пишете в WhatsApp или Директ</li>
+      <li>Выбираете размер, начинку и надпись</li>
+      <li>Я готовлю тортик к нужной дате</li>
+      <li>Забираете или заказываете доставку</li>
+    </ol>
+    <p class="delivery">Доставка по Магасу, в Сунжу и Экажево. Стоимость скажу при заказе.</p>
   </div>
 </section>
+</main>
 
 <footer>
-  <a href="#top" class="logo">simaa.cake</a>
-  <div>Бенто-торты ручной работы · Магас · © <span id="year"></span></div>
+  <a href="#" class="logo">simaa.cake</a>
+  <p>Бенто-торты ручной работы, Магас, <span id="year"></span></p>
 </footer>
 
 <script>
-const PHONE = "79674094319";
+const PHONE="79674094319";
 
-/* Отзывы из хайлайта «Отзывы» (дословно, эмодзи убраны). who — ник, если он был виден. */
-const REVIEWS = [
-  { text:"Как раз хотела вам написать и в инсте отметить, безумно вкусно. Теперь буду у вас заказывать и тортики все Дал аьндале попробую" },
-  { text:"Он такой минипусичка и такой красивый вид, я в восторге, спасибо вам, буду у вас чаще заказывать" },
-  { text:"Да, доехал, он был идеальный, просто шикарный, как и было в моих представлениях, спасибо большое" },
-  { text:"Тортик очень красивый, аккуратненький. Очень вкусный, всё очень понравилось" },
-  { text:"Торт очень понравился, Ась! Очень украсил наш подарок. Красивый, вкусный." },
-  { text:"Тортик доехал, он очень красивый. Спасибо большое за такую красоту! Мне безумно понравился! Вааа, я просто хочу смотреть на него, не отдавая." },
-  { text:"Тортик очень вкусным был, слопал сразу же" },
-  { text:"Лучше!!! Лучше, чем я ожидала" },
-  { text:"Наш тортик очень красивый был и вкусный, ещё раз спасибо большое" },
-  { text:"Я получила тортик, оформление очень красивое и сам тортик вживую очень миленький. Джазакаллаху Хайран" },
-  { text:"Давно не ела такие вкусные трайфлы, чизбомба вообще огонь", who:"@amiish.kiinss" },
-  { text:"Добрый вечер))) не могу не написать отзыв, этот тортик был ооооочень вкусный, вкуснее не пробовала" },
-  { text:"Торт был очень красивый и ооочень вкусный! Все, кто попробовал, просили ваши контакты! Ещё и взялись за заказ так оперативно" },
-  { text:"Ма Ша Аллах, тортик был очень вкусный, ну как всегда сделали, как я хотела" },
-  { text:"Торт очень вкусный, особенно крем…" },
+/* Отзывы из хайлайта «Отзывы», дословно (эмодзи убраны). */
+const REVIEWS=[
+  {t:"Как раз хотела вам написать и в инсте отметить, безумно вкусно. Теперь буду у вас заказывать и тортики все Дал аьндале попробую"},
+  {t:"Он такой минипусичка и такой красивый вид, я в восторге, спасибо вам, буду у вас чаще заказывать"},
+  {t:"Да, доехал, он был идеальный, просто шикарный, как и было в моих представлениях, спасибо большое"},
+  {t:"Тортик очень красивый, аккуратненький. Очень вкусный, всё очень понравилось"},
+  {t:"Торт очень понравился, Ась! Очень украсил наш подарок. Красивый, вкусный."},
+  {t:"Тортик доехал, он очень красивый. Спасибо большое за такую красоту! Мне безумно понравился! Вааа, я просто хочу смотреть на него, не отдавая."},
+  {t:"Тортик очень вкусным был, слопал сразу же"},
+  {t:"Лучше!!! Лучше, чем я ожидала"},
+  {t:"Наш тортик очень красивый был и вкусный, ещё раз спасибо большое"},
+  {t:"Я получила тортик, оформление очень красивое и сам тортик вживую очень миленький. Джазакаллаху Хайран"},
+  {t:"Давно не ела такие вкусные трайфлы, чизбомба вообще огонь",who:"@amiish.kiinss"},
+  {t:"Добрый вечер))) не могу не написать отзыв, этот тортик был ооооочень вкусный, вкуснее не пробовала"},
+  {t:"Торт был очень красивый и ооочень вкусный! Все, кто попробовал, просили ваши контакты! Ещё и взялись за заказ так оперативно"},
+  {t:"Ма Ша Аллах, тортик был очень вкусный, ну как всегда сделали, как я хотела"},
+  {t:"Торт очень вкусный, особенно крем…"},
 ];
 
-/* ---------- рисуем бенто (SVG), пока нет фото ---------- */
-function cakeSVG(o){
-  const cake=o.cake||"#f9c9c6", top=o.top||"#fde4de", cream=o.cream||"#ffffff", ink=o.ink||"#c9677a";
-  const cx=100, ty=74, by=136, rx=70, ry=18;
-  let topBeads="", botBeads="", deco="", side="";
-  for(let i=0;i<26;i++){const t=i/26*Math.PI*2;
-    topBeads+=`<circle cx="${(cx+(rx-2)*Math.cos(t)).toFixed(1)}" cy="${(ty+(ry-1)*Math.sin(t)).toFixed(1)}" r="6.4"/>`;}
-  for(let i=0;i<=16;i++){const t=i/16*Math.PI;
-    botBeads+=`<circle cx="${(cx+(rx+1)*Math.cos(t)).toFixed(1)}" cy="${(by+(ry-2)*Math.sin(t)).toFixed(1)}" r="6"/>`;}
-  const heart=(x,y,s,c=ink)=>`<path transform="translate(${x} ${y}) scale(${s})" d="M0 3C-1.5-1-6-1-6 2.5c0 3 6 6.5 6 6.5s6-3.5 6-6.5C6-1 1.5-1 0 3Z" fill="${c}"/>`;
-  const bow=(x,y,s,c)=>`<g transform="translate(${x} ${y}) scale(${s})" fill="${c}"><path d="M0 0C-4-5-11-5-11 0s7 5 11 0Z"/><path d="M0 0C4-5 11-5 11 0S4 5 0 0Z"/><path d="M-1 0l-4 9h3l2-6 2 6h3l-4-9Z"/><circle r="2.4"/></g>`;
-  switch(o.deco){
-    case "hearts": deco=heart(60,58,1)+heart(142,86,.8)+heart(134,58,.6); break;
-    case "bigheart": deco=heart(140,60,1.5,"#d9475e")+heart(62,84,.7,"#d9475e"); break;
-    case "cherry":
-      deco=`<path d="M128 46c-2 6-6 10-12 14M128 46c3 6 4 11 2 16" stroke="#7a9a5a" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <circle cx="115" cy="63" r="7" fill="#d9536a"/><circle cx="131" cy="65" r="7" fill="#e0607a"/>
-        <circle cx="113" cy="61" r="2" fill="#fff" opacity=".7"/><circle cx="129" cy="63" r="2" fill="#fff" opacity=".7"/>`; break;
-    case "dots":
-      [[58,66],[70,88],[140,62],[146,82],[86,57],[118,92]].forEach(([x,y],i)=>{
-        deco+=`<circle cx="${x}" cy="${y}" r="${i%2?2.4:3.2}" fill="${i%3?"#f2a18c":ink}" opacity=".8"/>`;}); break;
-    case "stars":
-      [[56,68],[146,64],[70,88],[134,90],[100,58]].forEach(([x,y],i)=>{
-        const s=i%2?3:4.2;
-        deco+=`<path transform="translate(${x} ${y})" d="M0 ${-s}L${s*.3} ${-s*.3}L${s} 0L${s*.3} ${s*.3}L0 ${s}L${-s*.3} ${s*.3}L${-s} 0L${-s*.3} ${-s*.3}Z" fill="${ink}"/>`;});
-      side=[[48,110],[90,120],[132,104],[152,124],[66,126]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="1.6" fill="#f6d98e"/>`).join(""); break;
-    case "lambeth":
-      for(let i=0;i<=12;i++){const x=cx-rx+i*(rx*2/12);
-        side+=`<path d="M${x-6} 98 q6 10 12 0" stroke="${ink}" stroke-width="2.4" fill="none" opacity=".75"/>`;}
-      deco=bow(46,100,.9,ink)+bow(154,100,.9,ink)+bow(100,112,1,ink);
-      topBeads=topBeads.replace(/r="6.4"/g,'r="7"'); break;
-  }
-  const box = o.box ? `
-    <path d="M14 112 L100 150 L186 112 L186 160 L100 174 L14 160Z" fill="#f4dcc6"/>
-    <path d="M14 112 L100 150 L100 174 L14 160Z" fill="#ebcbb0"/>
-    <path d="M60 131 L60 167 M140 131 L140 167" stroke="${ink}" stroke-width="5" opacity=".55"/>` : "";
+/* Надписи с её тортов (из хайлайта «Работы») */
+const WALL=[
+  {text:"Справка.|Хронический|воздухан", fill:"#FFFFFF", pipe:"#F2C4CC", ink:"#6B4B50"},
+  {text:"мой космос|35",               fill:"#2E3A6E", pipe:"#F3F0FF", ink:"#F6D98E", doodles:["star@58,62","star@142,70"]},
+  {text:"love you",                     fill:"#FFF4F2", pipe:"#fff",    ink:"#C8324F", doodles:["heart@100,140"]},
+  {text:"Мама, спасибо|что ты есть",    fill:"#FFE3D3", pipe:"#fff",    ink:"#C8324F", doodles:["heart@60,64","heart@142,140"]},
+  {text:"16",                           fill:"#F9C9D3", pipe:"#fff",    ink:"#C8324F", bows:true},
+  {text:"1 месяц",                      fill:"#CFE2F4", pipe:"#fff",    ink:"#4F7DAE", doodles:["cloud@100,146"]},
+  {text:"Любить|и бесить тебя|всегда буду", fill:"#FBD6DD", pipe:"#fff", ink:"#9C2E4A"},
+  {text:"hello 16",                     fill:"#FFFFFF", pipe:"#F7C6D0", ink:"#C8324F", doodles:["heart@56,62"]},
+  {text:"Лучший твой|подарочек –|это я", fill:"#FFE9DA", pipe:"#fff",   ink:"#B4553F"},
+];
+
+/* ---------- торт сверху, «расписанный кремом» ---------- */
+const DOODLES={
+  heart:'<path d="M0 4C-2-2-10-2-10 4c0 5 10 11 10 11s10-6 10-11C10-2 2-2 0 4Z"/>',
+  swirl:'<path d="M0 0c0-3 4-3 4 0 0 5-8 5-8 0 0-7 12-7 12 0 0 9-16 9-16 0"/>',
+  cloud:'<path d="M-18 8c-8 0-9-10-2-12 1-8 11-10 15-4 4-8 17-7 18 1 8-2 13 7 8 11 6 1 6 4 3 4H-18Z"/>',
+  rainbow:'<path d="M-22 6a22 22 0 0 1 44 0M-15 6a15 15 0 0 1 30 0M-8 6a8 8 0 0 1 16 0"/>',
+  sun:'<circle r="7"/><path d="M0-13v-5M0 13v5M-13 0h-5M13 0h5M-9-9l-4-4M9 9l4 4M9-9l4-4M-9 9l-4 4"/>',
+  star:'<path d="M0-9l2.5 6.5L9 0l-6.5 2.5L0 9l-2.5-6.5L-9 0l6.5-2.5Z"/>',
+};
+function topCake(o){
+  const fill=o.fill, pipe=o.pipe||"#fff", ink=o.ink||pipe;
+  let shells="";
+  for(let i=0;i<30;i++){const a=i/30*Math.PI*2;
+    shells+=`<ellipse cx="${(100+87*Math.cos(a)).toFixed(1)}" cy="${(100+87*Math.sin(a)).toFixed(1)}" rx="7.5" ry="5.4" transform="rotate(${(a*180/Math.PI+90).toFixed(0)} ${(100+87*Math.cos(a)).toFixed(1)} ${(100+87*Math.sin(a)).toFixed(1)})"/>`;}
+  let dots="";
+  for(let i=0;i<40;i++){const a=i/40*Math.PI*2;
+    dots+=`<circle cx="${(100+73*Math.cos(a)).toFixed(1)}" cy="${(100+73*Math.sin(a)).toFixed(1)}" r="1.5"/>`;}
+  const dd=(o.doodles||[]).map(s=>{const [k,p]=s.split("@");const [x,y]=p.split(",");
+    return `<g transform="translate(${x} ${y})">${DOODLES[k]}</g>`;}).join("");
+  let bows="";
+  if(o.bows){[[100,22],[30,118],[170,118]].forEach(([x,y])=>{bows+=`<g transform="translate(${x} ${y})" fill="${ink}"><path d="M0 0C-5-6-14-6-14 0s9 6 14 0Z"/><path d="M0 0C5-6 14-6 14 0S5 6 0 0Z"/><circle r="3"/></g>`;});}
   let txt="";
   if(o.text){
-    const lines=o.text.split("|");
-    const longest=Math.max(...lines.map(l=>l.length));
-    const fs = longest<=2?30 : longest<=8?20 : longest<=12?16 : longest<=16?13 : 11;
-    const lh=fs*0.95, y0=ty+fs*0.32-(lines.length-1)*lh/2;
-    txt=`<text text-anchor="middle" font-family="Marck Script, cursive" font-size="${fs}" fill="${ink}">`+
+    const lines=o.text.split("|"); const L=Math.max(...lines.map(l=>l.length));
+    const fs=L<=2?64:L<=4?42:L<=8?30:L<=11?21:17;
+    const lh=fs*1.08, y0=100+fs*.35-(lines.length-1)*lh/2;
+    txt=`<text text-anchor="middle" font-family="Yeseva One, Georgia, serif" font-size="${fs}" fill="${ink}">`+
       lines.map((l,i)=>`<tspan x="100" y="${(y0+i*lh).toFixed(1)}">${l}</tspan>`).join("")+`</text>`;
   }
-  return `<svg class="cake-svg" viewBox="0 0 200 180" role="img" aria-label="Бенто-торт">
-    <ellipse cx="100" cy="166" rx="86" ry="10" fill="#b5605f" opacity=".12"/>
-    <ellipse cx="100" cy="146" rx="86" ry="22" fill="#f6e2d2"/>
-    <ellipse cx="100" cy="143" rx="86" ry="22" fill="#fff"/>
-    <rect x="${cx-rx}" y="${ty}" width="${rx*2}" height="${by-ty}" fill="${cake}"/>
-    <ellipse cx="${cx}" cy="${by}" rx="${rx}" ry="${ry}" fill="${cake}"/>
-    <rect x="${cx-rx}" y="${ty}" width="22" height="${by-ty}" fill="#fff" opacity=".18"/>
-    <rect x="${cx+rx-18}" y="${ty}" width="18" height="${by-ty}" fill="#000" opacity=".05"/>
-    ${side}
-    <ellipse cx="${cx}" cy="${ty}" rx="${rx}" ry="${ry}" fill="${top}"/>
-    <g fill="${cream}">${botBeads}</g>
-    <g fill="${cream}">${topBeads}</g>
-    ${deco}${txt}${box}
+  return `<svg class="top" viewBox="0 0 200 200" role="img" aria-label="${o.text?("Бенто с надписью «"+o.text.replace(/\|/g," ")+"»"):"Бенто"}">
+    <circle cx="100" cy="100" r="96" fill="${fill}"/>
+    <circle cx="100" cy="100" r="96" fill="url(#shade)"/>
+    <g fill="${pipe}" opacity=".55">${dots}</g>
+    <g fill="${pipe}">${shells}</g>
+    <g fill="none" stroke="${ink}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".9">${dd}</g>
+    ${bows}${txt}
   </svg>`;
 }
-/* Если есть файл из data-photo, показываем фото; иначе остаётся иллюстрация */
-document.querySelectorAll("[data-cake]").forEach(el=>{
-  const tmp=document.createElement("div");
-  tmp.innerHTML=cakeSVG(JSON.parse(el.dataset.cake));
-  const svg=tmp.firstElementChild;
-  const photo=el.dataset.photo, alt=el.dataset.alt||"";
-  el.replaceWith(svg);
-  if(photo){
-    const img=new Image(); img.alt=alt; img.decoding="async";
-    img.onload=()=>{ svg.replaceWith(img); if(window.layoutBubbles) layoutBubbles(); };
-    img.src=photo;
-  }
-});
+document.body.insertAdjacentHTML("afterbegin",`<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <radialGradient id="shade" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".7" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".07"/></radialGradient></defs></svg>`);
+document.querySelectorAll("[data-top]").forEach(el=>{el.outerHTML=topCake(JSON.parse(el.dataset.top));});
+document.getElementById("wall").innerHTML=WALL.map(topCake).join("");
 
-/* ---------- отзывы-облачка в хаотичном порядке ---------- */
-const box = document.getElementById("bubbles");
-const chat = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1.1-4.6A8 8 0 1 1 21 12Z"/></svg>`;
-const tones = ["","peach","pink"];
-let seed = 7; const rnd = () => (seed = (seed*9301+49297)%233280)/233280;
-const items = REVIEWS.map((r,i)=>{
-  const b=document.createElement("div");
-  b.className="bubble "+tones[i%3];
-  b.innerHTML=`<p>${r.text}</p><div class="who">${chat}${r.who||"отзыв из Директа"}</div>`;
-  b._r=(rnd()*8-4).toFixed(1); b._w=.74+rnd()*.16; b._jx=rnd(); b._jy=rnd();
-  b.style.setProperty("--r", b._r+"deg");
-  b.style.setProperty("--d", (-i*.8)+"s");
-  b.style.setProperty("--tail", (15+rnd()*60)+"%");
-  box.appendChild(b); return b;
+/* ---------- отзывы, раскиданные вразнобой ---------- */
+const box=document.getElementById("bubbles");
+let seed=11; const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
+const tones=["","pink","peach","","peach","pink"];
+const msgs=REVIEWS.map((r,i)=>{
+  const m=document.createElement("blockquote");
+  m.className="msg "+tones[i%tones.length];
+  m.style.margin="0";
+  m.innerHTML=`<p>${r.t}</p>`+(r.who?`<cite>${r.who}</cite>`:"");
+  m._w=.7+rnd()*.22; m._x=rnd(); m._y=rnd();
+  m.style.setProperty("--r",(rnd()*6-3).toFixed(1)+"deg");
+  box.appendChild(m); return m;
 });
-function layoutBubbles(){
-  if(innerWidth<=980){
-    items.forEach(b=>{b.style.left=b.style.top=b.style.width="";});
-    box.style.height=""; return;
-  }
-  const cols = 3;
-  const W = box.clientWidth, colW = W/cols;
-  const h = Array.from({length:cols},(_,c)=>[0,60,24,90][c]);
-  items.forEach(b=>{
-    const w = colW*b._w;
-    b.style.width = w+"px";
-    const c = h.indexOf(Math.min(...h));
-    b.style.left = (c*colW + b._jx*(colW-w)) + "px";
-    b.style.top = h[c] + "px";
-    h[c] += b.offsetHeight + 34 + b._jy*36;
+function layout(){
+  if(innerWidth<=960){msgs.forEach(m=>{m.style.left=m.style.top=m.style.width="";});box.style.height="";return;}
+  const cols=3, W=box.clientWidth, cw=W/cols, h=[30,0,70];
+  msgs.forEach(m=>{
+    const w=cw*m._w; m.style.width=w+"px";
+    const c=h.indexOf(Math.min(...h));
+    m.style.left=(c*cw+m._x*(cw-w))+"px"; m.style.top=h[c]+"px";
+    h[c]+=m.offsetHeight+28+m._y*44;
   });
-  box.style.height = Math.max(...h) + "px";
+  box.style.height=Math.max(...h)+"px";
 }
-layoutBubbles();
-addEventListener("resize", layoutBubbles);
-document.fonts && document.fonts.ready.then(layoutBubbles);
+layout(); addEventListener("resize",layout);
+document.fonts&&document.fonts.ready.then(layout);
 
 /* ---------- WhatsApp с готовым текстом ---------- */
-document.querySelectorAll("[data-order]").forEach(a=>{
-  a.href=`https://wa.me/${PHONE}?text=${encodeURIComponent(`Здравствуйте! Хочу заказать ${a.dataset.order}.`)}`;
-  a.target="_blank"; a.rel="noopener";
-});
-document.querySelectorAll("[data-wa]").forEach(a=>{
-  a.href=`https://wa.me/${PHONE}?text=${encodeURIComponent("Здравствуйте! Хочу заказать бенто-торт 🎂")}`;
-});
-
-/* ---------- шапка и появление блоков ---------- */
-const header=document.querySelector(".header");
-addEventListener("scroll",()=>header.classList.toggle("scrolled",scrollY>30),{passive:true});
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{threshold:.1});
-document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+const wa=t=>`https://wa.me/${PHONE}?text=${encodeURIComponent(t)}`;
+document.querySelectorAll("[data-wa]").forEach(a=>a.href=wa("Здравствуйте! Хочу заказать бенто-торт"));
+document.querySelectorAll("[data-order]").forEach(a=>{a.href=wa(`Здравствуйте! Хочу заказать ${a.dataset.order}`);a.target="_blank";a.rel="noopener";});
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 </body>
