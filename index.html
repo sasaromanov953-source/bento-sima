@@ -4,519 +4,602 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>simaa.cake — бенто-торты в Магасе</title>
-<meta name="description" content="Маленькие тортики для больших событий. Бенто-торты в Магасе из натуральных ингредиентов: срочные заказы, доставка по Магасу, Сунже и Экажево.">
+<meta name="description" content="Маленькие тортики для больших событий. Бенто-торты ручной работы в Магасе из натуральных ингредиентов. Срочные заказы, доставка по Магасу, Сунже и Экажево.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Yeseva+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
+/*
+  simaa.cake. Тексты, цены и отзывы взяты из Instagram @simaa.cake.
+  Фото лежат в папке photos/.
+*/
 :root{
-  --sky-1:#F4B6C6;
-  --sky-2:#F9C4C0;
-  --sky-3:#FFD3B4;
-  --glow:#FFEBD6;
-  --paper:#FFFAF7;
-  --blush:#FCE8E6;
-  --berry:#B23A5E;
-  --berry-d:#962B4C;
-  --ink:#4A2730;
-  --ink-2:#7D5A60;
-  --line:#EFCFCB;
-  --display:"Yeseva One",Georgia,serif;
-  --text:"Manrope",system-ui,sans-serif;
+  --night:#1E1012;      /* вишнёвый шоколад, основной фон */
+  --wine:#2B1619;       /* поверхности */
+  --deep:#170B0D;
+  --gold:#C8A464;       /* шампанское золото: линии, цены, кнопки */
+  --gold-lt:#E3C98F;
+  --rose:#E7B7B0;       /* пудровая роза, редкий акцент */
+  --cream:#F1E4CF;      /* текст */
+  --cream-dim:#BFAF98;
+  --display:"Forum","Times New Roman",serif;
+  --serif:"Lora",Georgia,serif;
+  --gutter:clamp(18px,4vw,56px);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font:500 17px/1.6 var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img,svg{display:block;max-width:100%}
+body{margin:0;background:var(--night);color:var(--cream);font:400 17px/1.75 var(--serif);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
 a{color:inherit}
-h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1.05;letter-spacing:-.005em}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1}
 p{margin:0}
-:focus-visible{outline:3px solid var(--berry);outline-offset:3px;border-radius:6px}
-.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 
-.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;
-  font:700 16px/1 var(--text);text-decoration:none;border:0;cursor:pointer;transition:background .2s, transform .2s}
-.btn:active{transform:scale(.98)}
-.btn-berry{background:var(--berry);color:#fff}
-.btn-berry:hover{background:var(--berry-d)}
-.btn-line{color:var(--ink);box-shadow:inset 0 0 0 1.5px currentColor}
-.btn-line:hover{background:rgba(255,255,255,.5)}
-.btn svg{width:20px;height:20px}
+/* ---------- навигация ---------- */
+.nav{position:fixed;inset:0 0 auto;z-index:40;display:flex;align-items:center;justify-content:space-between;
+  padding:20px var(--gutter);transition:background .3s}
+.nav.solid{background:rgba(30,16,18,.92);backdrop-filter:blur(8px)}
+.brand{font:400 24px/1 var(--display);text-decoration:none;letter-spacing:.02em}
+.nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;font-size:15px;color:var(--cream-dim)}
+.nav ul a:hover{color:var(--cream)}
 
-/* ---------- nav ---------- */
-.nav{position:absolute;inset:0 0 auto;z-index:10}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:80px;gap:20px}
-.logo{font-family:var(--display);font-size:26px;text-decoration:none}
-.nav-links{display:flex;gap:30px;font-size:15px}
-.nav-links a{text-decoration:none}
-.nav-links a:hover{color:var(--berry)}
-.nav .btn{padding:12px 20px;font-size:15px}
+/* ---------- кнопки ---------- */
+.btn{display:inline-block;padding:15px 30px;border:1px solid var(--gold);color:var(--cream);text-decoration:none;
+  font:400 16px/1 var(--serif);background:transparent;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.btn:hover{background:var(--gold);color:var(--night)}
+.btn.fill{background:var(--gold);color:var(--night)}
+.btn.fill:hover{background:var(--gold-lt);border-color:var(--gold-lt)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
 
-/* ---------- hero: торт-солнце ---------- */
-.hero{position:relative;overflow:hidden;
-  background:linear-gradient(180deg,var(--sky-1) 0%,var(--sky-2) 30%,var(--sky-3) 64%,var(--glow) 86%)}
-.hero .hero-copy{position:relative;z-index:3;text-align:center;padding-top:clamp(116px,15vh,150px)}
-.hero h1{font-size:clamp(44px,6.6vw,96px);max-width:12.5em;margin:0 auto}
-.hero-sub{max-width:34em;margin:22px auto 32px;font-size:clamp(16px,1.5vw,19px);color:var(--ink-2)}
-.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.stage{--d:min(36vw,400px);--hz:96px;position:relative;height:calc(var(--d)*.74 + var(--hz));margin-top:clamp(40px,6vh,70px)}
-.horizon{position:absolute;left:0;right:0;bottom:0;height:var(--hz);z-index:2;background:linear-gradient(180deg,#FFF1E6 0%,var(--paper) 70%)}
-.horizon::before{content:"";position:absolute;left:50%;top:0;width:calc(var(--d)*1.6);height:100%;transform:translateX(-50%);
-  background:radial-gradient(ellipse at 50% 0,rgba(255,190,165,.6),transparent 70%)}
-.sun{position:absolute;z-index:1;left:50%;bottom:calc(var(--hz) - var(--d)*.26);
-  width:var(--d);height:var(--d);margin-left:calc(var(--d)/-2);border-radius:50%;overflow:hidden;
-  box-shadow:0 0 0 12px rgba(255,238,224,.6),0 0 0 30px rgba(255,228,210,.35),0 0 140px 60px rgba(255,214,186,.8);
-  animation:rise 2.2s cubic-bezier(.2,.7,.2,1) .2s both}
-.sun img{width:100%;height:100%;object-fit:cover;object-position:55% 54%;transform:scale(1.32);transform-origin:56% 55%}
-@keyframes rise{from{transform:translateY(60%)}to{transform:none}}
-.doodle{position:absolute;z-index:1;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:.9}
-.d-cloud1{width:170px;left:5%;top:47%}
-.d-cloud2{width:120px;right:6%;top:39%}
-.d-cloud3{width:96px;right:19%;top:68%;opacity:.75}
-.d-swirl{width:44px;left:23%;top:74%;opacity:.75}
-.hero-meta{position:absolute;z-index:3;left:0;right:0;bottom:26px;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;font-size:14px;color:var(--ink-2)}
-.hero-meta a{text-decoration:none}
+/* ---------- заставка: фото закреплено, текст проявляется при прокрутке ---------- */
+.hero{height:220vh;position:relative}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.photo{position:absolute;inset:0;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:56% 50%;transform:scale(calc(1.1 - var(--p,0)*.1))}
+.glow{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:radial-gradient(60% 55% at 70% 55%,rgba(232,170,110,.18),transparent 70%)}
+.shade{position:absolute;inset:0;z-index:2;
+  background:linear-gradient(180deg,rgba(30,16,18,.2) 0%,rgba(30,16,18,calc(.45 + var(--p,0)*.4)) 55%,var(--night) 100%)}
+.mark{position:absolute;z-index:3;left:var(--gutter);right:var(--gutter);bottom:clamp(36px,9vh,90px);
+  transform:translateY(calc(var(--p,0)*-24vh));text-shadow:0 2px 22px rgba(20,8,10,.5)}
+.mark h1{font-size:clamp(76px,15vw,230px);line-height:.85;letter-spacing:-.01em}
+.mark .sub{margin-top:18px;font:italic 400 clamp(18px,2vw,25px)/1.35 var(--serif);color:var(--cream-dim)}
+.more{max-width:32em;margin-top:30px;opacity:clamp(0,calc((var(--p,0) - .3)*2.6),1);
+  transform:translateY(calc((1 - clamp(0,calc((var(--p,0) - .3)*2.6),1))*26px))}
+.more .slogan{font:400 clamp(28px,3vw,40px)/1.15 var(--display);color:var(--gold-lt);margin-bottom:16px}
+.more p{font-size:clamp(16px,1.5vw,19px);margin-bottom:28px}
+@media (min-aspect-ratio:1/1){
+  .photo{left:auto;width:min(56vw,calc(100vh*.82))}
+  .photo::before{content:"";position:absolute;inset:0;z-index:2;
+    background:linear-gradient(90deg,var(--night) 0%,rgba(30,16,18,.55) 18%,rgba(30,16,18,0) 42%)}
+  .glow{background:radial-gradient(45% 60% at 72% 55%,rgba(232,170,110,.22),transparent 70%)}
+  .shade{background:linear-gradient(180deg,rgba(30,16,18,0) 0%,rgba(30,16,18,calc(var(--p,0)*.5)) 60%,var(--night) 100%)}
+  .mark{right:auto;max-width:min(60vw,820px)}
+}
 
 /* ---------- общие секции ---------- */
-.sec{padding:120px 0}
-.sec-head{max-width:640px;margin-bottom:64px}
-.sec-head h2{font-size:clamp(38px,5vw,64px)}
-.sec-head p{margin-top:18px;color:var(--ink-2);font-size:18px}
+.block{padding:clamp(80px,12vw,150px) var(--gutter)}
+.head{max-width:1200px;margin:0 auto 64px;display:flex;justify-content:space-between;align-items:end;gap:28px;flex-wrap:wrap}
+.head h2{font-size:clamp(46px,6.4vw,84px)}
+.head p{max-width:30em;color:var(--cream-dim)}
+.inner{max-width:1200px;margin:0 auto}
 
-/* ---------- каталог ---------- */
-.sizes{display:grid;grid-template-columns:10fr 12fr 14fr;gap:clamp(20px,4vw,64px);align-items:end}
-.size{text-align:center}
-.size .top{width:100%;filter:drop-shadow(0 22px 22px rgba(178,58,94,.18))}
-.size-name{font-family:var(--display);font-size:clamp(30px,3.2vw,40px);margin-top:28px}
-.size-facts{color:var(--ink-2);font-size:15px;margin-top:4px}
-.size-price{font-family:var(--display);font-size:30px;margin:14px 0 18px}
-.size .btn{padding:13px 24px;font-size:15px}
-.size:nth-child(2) .btn{background:var(--berry);color:#fff;box-shadow:none}
-
-.menu{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;margin-top:100px;padding-top:56px;border-top:1.5px dashed var(--line)}
-.menu h3{font-size:30px;margin-bottom:20px}
-.menu-list{list-style:none;margin:0;padding:0}
-.menu-list li{padding:14px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;align-items:baseline}
-.menu-list li small{display:block;color:var(--ink-2);font-size:14px;margin-top:4px;max-width:32em}
-.menu-list .tag{white-space:nowrap;font-size:14px;color:var(--ink-2)}
-.menu-list .val{white-space:nowrap;font-weight:700;color:var(--berry)}
-.kit{margin-top:36px}
-.kit p{color:var(--ink-2)}
-.kit p strong{color:var(--ink)}
+/* ---------- меню и цены ---------- */
+.menu{background:var(--wine)}
+.sizes{list-style:none;margin:0;padding:0;border-top:1px solid rgba(200,164,100,.35)}
+.sizes li{display:grid;grid-template-columns:150px 1fr auto auto;gap:32px;align-items:center;
+  padding:34px 0;border-bottom:1px solid rgba(200,164,100,.35)}
+.ring{display:flex;justify-content:center;align-items:center;height:118px}
+.ring span{display:block;border-radius:50%;border:1px solid var(--gold);box-shadow:0 0 0 6px rgba(200,164,100,.08)}
+.sizes h3{font-size:clamp(32px,3.4vw,46px)}
+.sizes .facts{color:var(--cream-dim);font-size:16px;margin-top:6px}
+.sizes .price{font:400 clamp(28px,2.6vw,36px)/1 var(--display);color:var(--gold-lt);white-space:nowrap}
+.sizes .order{font-size:15px;text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--gold);white-space:nowrap}
+.sizes .order:hover{color:var(--gold-lt)}
+.cols{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,7vw,110px);margin-top:96px}
+.cols h3{font-size:34px;margin-bottom:22px}
+.fill-list{list-style:none;margin:0;padding:0;columns:2;column-gap:40px}
+.fill-list li{break-inside:avoid;padding:0 0 18px;font-size:18px}
+.fill-list small{display:block;font-style:italic;font-size:14.5px;line-height:1.6;color:var(--cream-dim)}
+.extra{list-style:none;margin:0 0 40px;padding:0}
+.extra li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid rgba(241,228,207,.12)}
+.extra li span:last-child{color:var(--gold-lt);white-space:nowrap}
+.kit{font-style:italic;color:var(--cream-dim)}
+.kit strong{font-style:normal;font-weight:400;color:var(--cream)}
 
 /* ---------- работы ---------- */
-.works{background:var(--blush)}
-.works-grid{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:24px;align-items:start}
-.photo{margin:0}
-.photo img{width:100%;border-radius:20px;object-fit:cover}
-.photo.tall img{aspect-ratio:3/5}
-.photo.mid img{aspect-ratio:4/5}
-.photo.mid{margin-top:90px}
-.photo figcaption{margin-top:12px;font-size:15px;color:var(--ink-2)}
-.inscriptions h3{font-size:28px;margin-bottom:8px}
-.inscriptions > p{color:var(--ink-2);font-size:15px;margin-bottom:24px}
-.wall{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 10px}
-.wall .top{filter:drop-shadow(0 10px 10px rgba(120,40,60,.15));transition:transform .25s}
-.wall .top:nth-child(3n+1){transform:rotate(-6deg)}
-.wall .top:nth-child(3n+2){transform:rotate(4deg) translateY(10px)}
-.wall .top:nth-child(3n){transform:rotate(-2deg)}
-.wall .top:hover{transform:scale(1.12) rotate(0)}
-.also{margin-top:64px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.also p{max-width:40em}
+.works-grid{display:grid;grid-template-columns:5fr 4fr;gap:20px;align-items:start}
+.works-grid figure{margin:0}
+.works-grid img{width:100%;object-fit:cover}
+.works-grid .a img{aspect-ratio:4/5.2}
+.works-grid .b{margin-top:22%}
+.works-grid .b img{aspect-ratio:4/5}
+.works-grid figcaption{margin-top:14px;font-style:italic;font-size:15px;color:var(--cream-dim)}
+.inscriptions{margin-top:110px;text-align:center}
+.inscriptions h3{font-size:clamp(32px,3.6vw,46px)}
+.inscriptions > p{color:var(--cream-dim);margin-top:12px}
+.phrases{list-style:none;margin:48px auto 0;padding:0;max-width:1000px;display:flex;flex-wrap:wrap;justify-content:center;gap:18px 44px}
+.phrases li{font:italic 400 clamp(19px,2vw,27px)/1.3 var(--serif)}
+.phrases li::before{content:"«";color:var(--gold)}
+.phrases li::after{content:"»";color:var(--gold)}
+.phrases li:nth-child(3n+2){color:var(--rose)}
+.also{max-width:1200px;margin:96px auto 0;padding-top:40px;border-top:1px solid rgba(200,164,100,.35);
+  display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.also p{max-width:38em;color:var(--cream-dim)}
 
-/* ---------- процесс: из заката в сумерки ---------- */
-.process{background:linear-gradient(180deg,var(--blush) 0%,#F6D7DF 45%,#E7D2E6 100%)}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;list-style:none;margin:0;padding:0;counter-reset:step}
-.steps li{counter-increment:step;border-top:1.5px solid rgba(74,39,48,.25);padding-top:22px}
-.steps li::before{content:counter(step);display:block;font-family:var(--display);font-size:56px;line-height:1;color:var(--berry);margin-bottom:18px}
-.steps h3{font-size:26px;margin-bottom:10px}
-.steps p{color:var(--ink-2);font-size:15.5px}
-.steps q{display:block;margin-top:14px;font-style:italic;font-size:15px;color:var(--ink)}
-.night{text-align:center;padding-top:110px}
-.night svg{width:56px;margin:0 auto 22px;fill:none;stroke:var(--berry);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.night p{font-family:var(--display);font-size:clamp(28px,3.6vw,46px);line-height:1.2;max-width:16em;margin:0 auto}
-.night small{display:block;margin-top:14px;color:var(--ink-2);font-size:14px}
+/* ---------- процесс ---------- */
+.process{background:linear-gradient(180deg,var(--night) 0%,var(--deep) 100%)}
+.steps{list-style:none;margin:0 auto;padding:0;max-width:1200px;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;counter-reset:s}
+.steps li{counter-increment:s;padding-top:24px;border-top:1px solid rgba(200,164,100,.45)}
+.steps li::before{content:counter(s);display:block;font:400 54px/1 var(--display);color:var(--gold);margin-bottom:20px}
+.steps h3{font-size:28px;margin-bottom:12px}
+.steps p{font-size:16px;color:var(--cream-dim)}
+.steps q{display:block;margin-top:16px;font-style:italic;font-size:15.5px;color:var(--rose)}
+.night{max-width:900px;margin:130px auto 0;text-align:center}
+.night p{font:400 clamp(30px,4vw,54px)/1.2 var(--display)}
+.night small{display:block;margin-top:16px;font-style:italic;color:var(--cream-dim);font-size:15px}
 
-/* ---------- отзывы ---------- */
-.reviews{background:linear-gradient(180deg,#E7D2E6 0%,var(--paper) 34%)}
-.bubbles{position:relative}
-.msg{position:absolute;padding:16px 20px;border-radius:22px 22px 22px 6px;background:#fff;
-  box-shadow:0 1px 0 rgba(74,39,48,.06),0 14px 30px -18px rgba(120,40,60,.35);transform:rotate(var(--r));font-size:16px;line-height:1.5}
-.msg.pink{background:#FBDDE3}
-.msg.peach{background:#FFE4D2}
-.msg cite{display:block;margin-top:8px;font-style:normal;font-size:13px;color:var(--ink-2)}
+/* ---------- отзывы: записки веером поднимаются из коробки для торта ---------- */
+.reviews{background:var(--deep);overflow:hidden}
+.bouquet{--mouth:150px;position:relative;height:clamp(560px,46vw,630px);max-width:900px;margin:0 auto}
+.box{position:absolute;left:50%;bottom:0;z-index:20;width:300px;height:auto;transform:translateX(-50%);
+  filter:drop-shadow(0 24px 30px rgba(0,0,0,.55))}
+.box-body{fill:#2E1A1D}
+.box-front{fill:url(#boxGrad)}
+.box-trim{fill:none;stroke:var(--gold);stroke-width:1.5}
+.box-emb{font:400 34px/1 var(--display);fill:var(--gold);opacity:.85}
+.bouquet button{position:absolute;left:50%;bottom:calc(var(--mouth) - 80px);padding:0;border:0;background:none;
+  cursor:zoom-in;z-index:var(--z);transform-origin:50% 100%;
+  transform:translateX(-50%) rotate(var(--r)) translateY(calc(var(--lift) * -1));
+  transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.bouquet.ready:not(.bloom) button{transform:translateX(-50%) rotate(0deg) translateY(60%);transition:none}
+.bouquet.bloom button{transition:transform .75s cubic-bezier(.2,.9,.25,1.15) var(--delay,0s)}
+.bouquet.bloom.settled button{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.bouquet button:hover,.bouquet button:focus-visible{transform:translateX(-50%) rotate(calc(var(--r) * .85)) translateY(calc(var(--lift) * -1 - 16px))}
+.card{display:block;text-align:left;background:var(--cream);color:var(--night);
+  box-shadow:0 16px 32px -12px rgba(0,0,0,.7);border-top:3px solid var(--gold)}
+.bouquet .card{width:var(--w);height:calc(var(--w) * 1.32);padding:16px 15px 14px;overflow:hidden;position:relative}
+.bouquet .card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46px;background:linear-gradient(transparent,var(--bg,var(--cream)))}
+.card.alt{--bg:#EBDDC6;background:#EBDDC6}
+.card.pink{--bg:#F2D6CF;background:#F2D6CF}
+.bouquet .card p{font:italic 400 13.5px/1.5 var(--serif)}
+.card cite{display:block;font:400 14px/1 var(--display);font-style:normal;color:#8A6A3C;margin-top:10px}
+.hint{text-align:center;margin-top:28px;font-style:italic;color:var(--cream-dim);font-size:15px}
+
+/* полноэкранный просмотр */
+.viewer{position:fixed;inset:0;z-index:60;display:grid;place-items:center}
+.viewer[hidden]{display:none}
+.viewer-backdrop{position:absolute;inset:0;background:rgba(18,8,10,.94);opacity:0;transition:opacity .3s}
+.viewer.open .viewer-backdrop{opacity:1}
+.viewer .card{position:fixed;left:0;top:0;width:min(560px,86vw);padding:clamp(28px,5vw,52px);
+  transform-origin:0 0;will-change:transform;box-shadow:0 30px 80px -20px rgba(0,0,0,.7)}
+.viewer .card p{font:italic 400 clamp(19px,2.4vw,25px)/1.55 var(--serif)}
+.viewer .card cite{font-size:18px;margin-top:20px}
+.viewer-count{position:absolute;top:22px;left:50%;transform:translateX(-50%);color:var(--gold-lt);font:400 16px/1 var(--display);opacity:0;transition:opacity .3s}
+.viewer.open .viewer-count{opacity:1}
+.viewer-btn{position:absolute;width:52px;height:52px;border-radius:50%;border:1px solid rgba(200,164,100,.5);
+  background:transparent;color:var(--gold-lt);font-size:30px;line-height:1;cursor:pointer;opacity:0;transition:opacity .3s,background .2s}
+.viewer.open .viewer-btn{opacity:1}
+.viewer-btn:hover{background:rgba(200,164,100,.15)}
+.viewer-close{top:14px;right:14px}
+.viewer-prev{left:18px;top:50%;transform:translateY(-50%)}
+.viewer-next{right:18px;top:50%;transform:translateY(-50%)}
 
 /* ---------- заказ ---------- */
-.order{position:relative;overflow:hidden;text-align:center;
-  background:linear-gradient(180deg,var(--paper) 0%,var(--glow) 30%,var(--sky-3) 62%,var(--sky-1) 100%)}
-.order h2{font-size:clamp(40px,5.6vw,76px);max-width:11em;margin:0 auto}
-.order > .wrap > p{max-width:34em;margin:22px auto 34px;color:var(--ink-2);font-size:18px}
-.how{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;list-style:none;padding:0;margin:72px auto 0;max-width:980px;text-align:left;counter-reset:h}
-.how li{counter-increment:h;font-size:15.5px;border-top:1.5px solid rgba(74,39,48,.25);padding-top:14px}
-.how li::before{content:counter(h);font-family:var(--display);font-size:26px;color:var(--berry);display:block;margin-bottom:6px}
-.delivery{margin-top:56px;font-size:15.5px}
-footer{background:var(--sky-1);text-align:center;padding:0 24px 34px;font-size:14px;color:var(--ink-2)}
-footer .logo{color:var(--ink);font-size:22px}
+.order-sec{text-align:center;background:radial-gradient(70% 90% at 50% 110%,rgba(200,140,90,.35),transparent 70%),var(--night)}
+.order-sec h2{font-size:clamp(46px,7vw,100px);max-width:10em;margin:0 auto}
+.order-sec .lead{max-width:32em;margin:26px auto 36px;color:var(--cream-dim);font-size:18px}
+.order-sec .btns{justify-content:center}
+.how{list-style:none;padding:0;margin:90px auto 0;max-width:1000px;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;text-align:left;counter-reset:h}
+.how li{counter-increment:h;padding-top:16px;border-top:1px solid rgba(200,164,100,.35);font-size:15.5px}
+.how li::before{content:counter(h);display:block;font:400 28px/1 var(--display);color:var(--gold);margin-bottom:10px}
+.delivery{margin-top:56px;font-style:italic;color:var(--cream-dim)}
+
+footer{padding:52px var(--gutter);border-top:1px solid rgba(241,228,207,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px 28px;color:var(--cream-dim);font-size:15px}
+footer .brand{color:var(--cream)}
+footer a{text-decoration:none}
+footer a:hover{color:var(--cream)}
 
 /* ---------- адаптив ---------- */
-@media (max-width:960px){
-  .nav-links{display:none}
-  .works-grid{grid-template-columns:1fr 1fr}
-  .inscriptions{grid-column:1/-1;margin-top:40px}
-  .steps{grid-template-columns:1fr 1fr;row-gap:48px}
-  .menu{grid-template-columns:1fr;gap:48px}
+@media (max-width:900px){
+  .sizes li{grid-template-columns:96px 1fr;gap:6px 20px}
+  .sizes .ring{grid-row:span 3;height:96px}
+  .sizes .price{margin-top:6px}
+  .cols{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr;row-gap:56px}
   .how{grid-template-columns:1fr 1fr}
-  .bubbles{display:flex;flex-direction:column;gap:18px}
-  .msg{position:relative;max-width:88%}
-  .msg:nth-child(even){align-self:flex-end;border-radius:22px 22px 6px 22px}
+}
+@media (max-width:760px){
+  .bouquet{--mouth:112px;height:470px}
+  .box{width:210px}
+  .viewer-prev,.viewer-next{top:auto;bottom:22px;transform:none}
 }
 @media (max-width:600px){
   body{font-size:16px}
-  .wrap{padding:0 18px}
-  .sec{padding:84px 0}
-  .nav .btn span{display:none}
-  .nav .btn{padding:11px}
-  .stage{--d:72vw;--hz:80px}
-  .d-cloud1{width:100px;left:-6%;top:64%}
-  .d-cloud2{width:84px;right:-5%;top:58%}
-  .d-cloud3,.d-swirl{display:none}
-  .hero-meta{gap:14px;font-size:13px;bottom:14px}
-  .sizes{gap:12px}
-  .size-name{font-size:21px;margin-top:16px}
-  .size-facts{font-size:12px;line-height:1.4}
-  .size-price{font-size:22px}
-  .size .btn{padding:10px 11px;font-size:13px;white-space:nowrap}
+  .nav ul{gap:16px}
+  .nav ul .hide-sm{display:none}
+  .fill-list{columns:1}
   .works-grid{grid-template-columns:1fr}
-  .photo.mid{margin-top:0}
+  .works-grid .b{margin-top:0}
   .steps,.how{grid-template-columns:1fr}
+  .btns .btn{flex:1 1 100%;text-align:center}
 }
 @media (prefers-reduced-motion:reduce){
-  .sun{animation:none}
   html{scroll-behavior:auto}
-  .wall .top{transition:none}
+  .hero{height:auto}.stage{position:relative}
+  .mark{transform:none}.more{opacity:1;transform:none}
+  .photo img{transform:none}
+  .bouquet button,.viewer-backdrop,.viewer-btn,.viewer-count{transition:none}
 }
 </style>
 </head>
 <body>
 
-<nav class="nav" aria-label="Главное меню">
-  <div class="wrap">
-    <a href="#" class="logo">simaa.cake</a>
-    <div class="nav-links">
-      <a href="#sizes">Цены</a>
-      <a href="#works">Работы</a>
-      <a href="#process">Процесс</a>
-      <a href="#reviews">Отзывы</a>
-    </div>
-    <a class="btn btn-berry" href="https://wa.me/79674094319" data-wa target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.3-.3-.3-.6-.4Z"/></svg>
-      <span>Заказать</span>
-    </a>
-  </div>
+<nav class="nav" id="nav" aria-label="Главное меню">
+  <a class="brand" href="#top">simaa.cake</a>
+  <ul>
+    <li><a href="#menu">Цены</a></li>
+    <li><a href="#works">Работы</a></li>
+    <li class="hide-sm"><a href="#process">Процесс</a></li>
+    <li class="hide-sm"><a href="#reviews">Отзывы</a></li>
+  </ul>
 </nav>
 
 <!-- ============ ЗАСТАВКА ============ -->
-<header class="hero">
-  <svg class="doodle d-cloud1" viewBox="0 0 170 70" aria-hidden="true"><path d="M20 58c-12 0-16-16-4-21 0-13 17-18 25-9 5-14 27-15 32-1 9-8 25-3 25 10 13-2 20 15 7 21H20Z"/><path d="M118 58h34"/></svg>
-  <svg class="doodle d-cloud2" viewBox="0 0 120 56" aria-hidden="true"><path d="M14 46c-10 0-12-13-2-16 1-11 15-14 21-6 5-12 24-11 26 1 11-4 21 6 16 15 10 1 12 6 8 6H14Z"/></svg>
-  <svg class="doodle d-cloud3" viewBox="0 0 90 44" aria-hidden="true"><path d="M12 36c-8 0-9-10-2-12 1-9 12-11 17-5 4-9 19-9 21 1 9-3 17 5 12 11 7 1 9 5 6 5H12Z"/></svg>
-  <svg class="doodle d-swirl" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 22c0-3 4-3 4 0 0 5-8 5-8 0 0-7 12-7 12 0 0 9-16 9-16 0 0-11 20-11 20 0"/></svg>
-
-  <div class="wrap hero-copy">
-    <h1>Маленькие тортики для больших событий</h1>
-    <p class="hero-sub">Бенто-торты в Магасе из натуральных ингредиентов. Пишу надписи, рисую кремом и успеваю к срочным праздникам.</p>
-    <div class="hero-cta">
-      <a class="btn btn-berry" href="https://wa.me/79674094319" data-wa target="_blank" rel="noopener">Заказать в WhatsApp</a>
-      <a class="btn btn-line" href="#sizes">Цены от 1 300 ₽</a>
-    </div>
-  </div>
-
-  <div class="stage">
-  <div class="sun"><img src="photos/hero.jpg" alt="Розовый бенто-торт, расписанный кремом: облака, солнце, радуга и надпись «Добро пожаловать домой»"></div>
-    <div class="horizon">
-  <div class="hero-meta">
-    <span>Магас, Ингушетия</span>
-    <a href="https://instagram.com/simaa.cake" target="_blank" rel="noopener">@simaa.cake</a>
-    <a href="tel:+79674094319">+7 967 409-43-19</a>
-  </div>
+<header class="hero" id="top">
+  <div class="stage" id="stage">
+    <div class="photo"><img src="photos/hero.jpg" alt="Розовый бенто-торт, расписанный кремом, с надписью «Добро пожаловать домой» в фирменной коробке simaa.cake"></div>
+    <div class="glow"></div>
+    <div class="shade"></div>
+    <div class="mark">
+      <h1>simaa</h1>
+      <p class="sub">Бенто-торты ручной работы. Магас, Ингушетия</p>
+      <div class="more">
+        <p class="slogan">Маленькие тортики для больших событий</p>
+        <p>Пеку из натуральных ингредиентов, вывожу надписи и рисую кремом по вашей идее. Принимаю срочные заказы и доставляю по Магасу, в Сунжу и Экажево.</p>
+        <div class="btns">
+          <a class="btn fill" href="https://wa.me/79674094319" data-wa target="_blank" rel="noopener">Заказать в WhatsApp</a>
+          <a class="btn" href="#menu">Смотреть цены</a>
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
 <main>
-<!-- ============ РАЗМЕРЫ И ЦЕНЫ ============ -->
-<section class="sec" id="sizes">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Три размера</h2>
-      <p>Нарисованы в настоящей пропорции: 10, 12 и 14 сантиметров. Любая начинка на выбор без доплаты.</p>
-    </div>
+<!-- ============ ЦЕНЫ ============ -->
+<section class="block menu" id="menu">
+  <div class="head">
+    <h2>Меню</h2>
+    <p>Три размера бенто. Любая начинка на выбор входит в цену, свечка и ложечка уже в коробке.</p>
+  </div>
+  <div class="inner">
+    <ul class="sizes">
+      <li>
+        <div class="ring" aria-hidden="true"><span style="width:71px;height:71px"></span></div>
+        <div><h3>Бенто S</h3><p class="facts">10 см, 400–500 г, на 1–2 человек</p></div>
+        <div class="price">1 300 ₽</div>
+        <a class="order" href="#" data-order="Бенто S">Заказать</a>
+      </li>
+      <li>
+        <div class="ring" aria-hidden="true"><span style="width:85px;height:85px"></span></div>
+        <div><h3>Бенто M</h3><p class="facts">12 см, 500–600 г, на 3–4 человек</p></div>
+        <div class="price">1 500 ₽</div>
+        <a class="order" href="#" data-order="Бенто M">Заказать</a>
+      </li>
+      <li>
+        <div class="ring" aria-hidden="true"><span style="width:100px;height:100px"></span></div>
+        <div><h3>Бенто L</h3><p class="facts">14 см, 1–1,3 кг, на 5 человек и больше</p></div>
+        <div class="price">1 700 ₽</div>
+        <a class="order" href="#" data-order="Бенто L">Заказать</a>
+      </li>
+    </ul>
 
-    <div class="sizes">
-      <div class="size">
-        <div data-top='{"fill":"#FFD9C6","pipe":"#fff","ink":"#C55E58","text":"S","doodles":["heart@60,64","swirl@140,138"]}'></div>
-        <div class="size-name">Бенто S</div>
-        <div class="size-facts">400–500 г, на 1–2 человек</div>
-        <div class="size-price">1 300 ₽</div>
-        <a class="btn btn-line" href="#" data-order="Бенто S">Заказать S</a>
-      </div>
-      <div class="size">
-        <div data-top='{"fill":"#F7B9C6","pipe":"#fff","ink":"#fff","text":"M","doodles":["cloud@52,60","heart@146,64","rainbow@100,150"]}'></div>
-        <div class="size-name">Бенто M</div>
-        <div class="size-facts">500–600 г, на 3–4 человек</div>
-        <div class="size-price">1 500 ₽</div>
-        <a class="btn btn-line" href="#" data-order="Бенто M">Заказать M</a>
-      </div>
-      <div class="size">
-        <div data-top='{"fill":"#FFF6F0","pipe":"#F3B7C3","ink":"#B23A5E","text":"L","doodles":["sun@56,58","cloud@146,62","heart@58,140","swirl@144,142"]}'></div>
-        <div class="size-name">Бенто L</div>
-        <div class="size-facts">1–1,3 кг, на 5 человек и больше</div>
-        <div class="size-price">1 700 ₽</div>
-        <a class="btn btn-line" href="#" data-order="Бенто L">Заказать L</a>
-      </div>
-    </div>
-
-    <div class="menu">
+    <div class="cols">
       <div>
         <h3>Начинки</h3>
-        <ul class="menu-list">
-          <li><span>Клубника-ваниль</span></li>
-          <li><span>Банан-шоколад</span></li>
-          <li><span>Фисташка-малина</span></li>
-          <li><span>Сникерс<small>Шоколадный бисквит, мягкая сливочная карамель, арахис, сливочный крем-чиз, шоколад</small></span></li>
-          <li><span>Молочный ломтик</span></li>
+        <ul class="fill-list">
+          <li>Клубника-ваниль</li>
+          <li>Банан-шоколад</li>
+          <li>Фисташка-малина</li>
+          <li>Молочный ломтик</li>
+          <li>Сникерс<small>Шоколадный бисквит, мягкая сливочная карамель, арахис, сливочный крем-чиз, шоколад</small></li>
         </ul>
       </div>
       <div>
         <h3>Доплаты</h3>
-        <ul class="menu-list">
-          <li><span>Срочный заказ</span><span class="val">+100 ₽</span></li>
-          <li><span>Сложный дизайн<small>Цена зависит от сложности, посчитаю в переписке</small></span><span class="val">от +100 ₽</span></li>
+        <ul class="extra">
+          <li><span>Срочный заказ</span><span>+100 ₽</span></li>
+          <li><span>Сложный дизайн, по сложности</span><span>от +100 ₽</span></li>
         </ul>
-        <div class="kit">
-          <h3>В каждой коробке</h3>
-          <p><strong>Свечка, ложечка, визитка с цитатой, пакетик и лента.</strong> Ничего докупать не нужно, тортик сразу готов к вручению.</p>
-        </div>
+        <p class="kit"><strong>В каждой коробке</strong> свечка, ложечка, визитка с цитатой, пакетик и лента.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ РАБОТЫ ============ -->
-<section class="sec works" id="works">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Работы</h2>
-      <p>Тортики для мамы, сестры, на годик малыша, на день рождения или просто так.</p>
-    </div>
-
+<section class="block" id="works">
+  <div class="head">
+    <h2>Работы</h2>
+    <p>Тортики для мамы, сестры, на годик малыша, на день рождения или просто так. Больше работ в Instagram.</p>
+  </div>
+  <div class="inner">
+    <!-- ФОТО: новые работы добавлять сюда как <figure><img src="photos/..." alt="..."><figcaption>...</figcaption></figure> -->
     <div class="works-grid">
-      <figure class="photo tall">
+      <figure class="a">
         <img src="photos/work-mame-flowers.jpg" alt="Белый бенто с надписью «Маме» в коробке с розами и гортензией" loading="lazy">
         <figcaption>«Маме» в коробке с живыми цветами</figcaption>
       </figure>
-      <figure class="photo mid">
+      <figure class="b">
         <img src="photos/work-desserts.jpg" alt="Четыре десерта в белом шоколаде с сердечком, цветком и надписью «Маме»" loading="lazy">
-        <figcaption>Набор десертов в белом шоколаде</figcaption>
+        <figcaption>Десерты в белом шоколаде с сусальным золотом</figcaption>
       </figure>
-      <div class="inscriptions">
-        <h3>Надпись может быть любой</h3>
-        <p>Вот что уже выводила кремом по просьбе заказчиков:</p>
-        <div class="wall" id="wall"></div>
-      </div>
     </div>
 
-    <div class="also">
-      <p>Ещё готовлю трайфлы, кукис, меренговый рулет, дубайские десерты и мини-торт «в горшке» с цветком любого цвета.</p>
-      <a class="btn btn-line" href="https://instagram.com/simaa.cake" target="_blank" rel="noopener">Все работы в Instagram</a>
+    <div class="inscriptions">
+      <h3>Надпись может быть любой</h3>
+      <p>Несколько из тех, что уже выводила кремом:</p>
+      <ul class="phrases">
+        <li>Справка. Хронический воздухан</li>
+        <li>С днём рождения, мой космос</li>
+        <li>Мама, спасибо, что ты есть</li>
+        <li>Любить и бесить тебя всегда буду</li>
+        <li>Разрешите поздравить, товарищ старший лейтенант</li>
+        <li>Для мира ты просто мама, а для нас ты весь мир</li>
+        <li>Лучший твой подарочек — это я</li>
+        <li>Добро пожаловать домой</li>
+        <li>love you</li>
+      </ul>
     </div>
+  </div>
+  <div class="also">
+    <p>Ещё готовлю трайфлы, кукис, меренговый рулет, дубайские десерты и мини-торт «в горшке» с живым цветком любого цвета.</p>
+    <a class="btn" href="https://instagram.com/simaa.cake" target="_blank" rel="noopener">Instagram @simaa.cake</a>
   </div>
 </section>
 
 <!-- ============ ПРОЦЕСС ============ -->
-<section class="sec process" id="process">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>От бисквита до надписи</h2>
-      <p>Всё делаю сама, под каждый заказ.</p>
-    </div>
-    <ol class="steps">
-      <li>
-        <h3>Выпечка</h3>
-        <p>Шоколадные и ванильные бисквиты, отдельный мини-бисквит под бенто.</p>
-        <q>Сегодня будет день заготовок</q>
-      </li>
-      <li>
-        <h3>Кремы и начинки</h3>
-        <p>Ванильный ганаш, крем на тёмном шоколаде, лимонный курд, солёная карамель, свежая клубника.</p>
-        <q>Столько попыток было, чтоб приготовить солёную карамель</q>
-      </li>
-      <li>
-        <h3>Сборка</h3>
-        <p>Собираю слоями и оставляю на стабилизацию, чтобы тортик держал форму в дороге.</p>
-        <q>Собрала и на стабилизацию</q>
-      </li>
-      <li>
-        <h3>Украшение</h3>
-        <p>Выравниваю, рисую кремом, вывожу надписи. Ламбет с бантами, рисунки по вашей идее, фотопечать.</p>
-        <q>Процесс рисования на бенто</q>
-      </li>
-    </ol>
-
-    <div class="night">
-      <svg viewBox="0 0 56 56" aria-hidden="true"><path d="M36 10a18 18 0 1 0 10 28A16 16 0 0 1 36 10Z"/><path d="M44 12v6M41 15h6M14 14v4M12 16h4"/></svg>
-      <p>«Наступила ночь, это значит, что пришло время готовок!»</p>
-      <small>из сторис simaa.cake</small>
-    </div>
+<section class="block process" id="process">
+  <div class="head">
+    <h2>Процесс</h2>
+    <p>Всё делаю сама и под каждый заказ: от бисквита до последней буквы на крышке.</p>
+  </div>
+  <ol class="steps">
+    <li>
+      <h3>Выпечка</h3>
+      <p>Шоколадные и ванильные бисквиты, отдельный мини-бисквит под бенто.</p>
+      <q>Сегодня будет день заготовок</q>
+    </li>
+    <li>
+      <h3>Кремы и начинки</h3>
+      <p>Ванильный ганаш, крем на тёмном шоколаде, лимонный курд, солёная карамель, свежая клубника.</p>
+      <q>Столько попыток было, чтоб приготовить солёную карамель</q>
+    </li>
+    <li>
+      <h3>Сборка</h3>
+      <p>Собираю слоями и оставляю на стабилизацию, чтобы тортик держал форму в дороге.</p>
+      <q>Собрала и на стабилизацию</q>
+    </li>
+    <li>
+      <h3>Украшение</h3>
+      <p>Выравниваю, рисую кремом, вывожу надписи. Ламбет с бантами, рисунки по вашей идее, фотопечать.</p>
+      <q>Процесс рисования на бенто</q>
+    </li>
+  </ol>
+  <div class="night">
+    <p>«Наступила ночь, это значит, что пришло время готовок!»</p>
+    <small>из сторис simaa.cake</small>
   </div>
 </section>
 
 <!-- ============ ОТЗЫВЫ ============ -->
-<section class="sec reviews" id="reviews">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Что пишут после праздника</h2>
-      <p>Сообщения заказчиков из Директа, как есть.</p>
-    </div>
-    <div class="bubbles" id="bubbles"></div>
+<section class="block reviews" id="reviews">
+  <div class="head">
+    <h2>Отзывы</h2>
+    <p>Сообщения из Директа, дословно. Нажмите на записку, чтобы прочитать все отзывы по очереди.</p>
   </div>
+  <div class="bouquet" id="bouquet">
+    <svg class="box" viewBox="0 0 300 170" aria-hidden="true">
+      <defs>
+        <linearGradient id="boxGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#4A2A2E"/><stop offset="1" stop-color="#2A1518"/>
+        </linearGradient>
+      </defs>
+      <path class="box-body" d="M18 20h264l-10 18H28z"/>
+      <rect class="box-front" x="10" y="34" width="280" height="136" rx="4"/>
+      <rect class="box-trim" x="22" y="46" width="256" height="112" rx="2"/>
+      <path class="box-trim" d="M10 34h280"/>
+      <text class="box-emb" x="150" y="114" text-anchor="middle">simaa</text>
+    </svg>
+  </div>
+  <p class="hint">Записки можно листать стрелками или свайпом</p>
 </section>
 
 <!-- ============ ЗАКАЗ ============ -->
-<section class="sec order" id="order">
-  <div class="wrap">
-    <h2>Расскажите, какой будет праздник</h2>
-    <p>Напишите повод и дату, выберите размер и начинку. Дизайн придумаем вместе.</p>
-    <div class="hero-cta">
-      <a class="btn btn-berry" href="https://wa.me/79674094319" data-wa target="_blank" rel="noopener">Написать в WhatsApp</a>
-      <a class="btn btn-line" href="https://instagram.com/simaa.cake" target="_blank" rel="noopener">Директ Instagram</a>
-    </div>
-    <ol class="how">
-      <li>Пишете в WhatsApp или Директ</li>
-      <li>Выбираете размер, начинку и надпись</li>
-      <li>Я готовлю тортик к нужной дате</li>
-      <li>Забираете или заказываете доставку</li>
-    </ol>
-    <p class="delivery">Доставка по Магасу, в Сунжу и Экажево. Стоимость скажу при заказе.</p>
+<section class="block order-sec" id="order">
+  <h2>Расскажите, какой будет праздник</h2>
+  <p class="lead">Напишите повод и дату, выберите размер и начинку. Дизайн придумаем вместе.</p>
+  <div class="btns">
+    <a class="btn fill" href="https://wa.me/79674094319" data-wa target="_blank" rel="noopener">Написать в WhatsApp</a>
+    <a class="btn" href="https://instagram.com/simaa.cake" target="_blank" rel="noopener">Директ Instagram</a>
   </div>
+  <ol class="how">
+    <li>Пишете в WhatsApp или Директ</li>
+    <li>Выбираете размер, начинку и надпись</li>
+    <li>Я готовлю тортик к нужной дате</li>
+    <li>Забираете или заказываете доставку</li>
+  </ol>
+  <p class="delivery">Доставка по Магасу, в Сунжу и Экажево. Стоимость скажу при заказе.</p>
 </section>
 </main>
 
 <footer>
-  <a href="#" class="logo">simaa.cake</a>
-  <p>Бенто-торты ручной работы, Магас, <span id="year"></span></p>
+  <span class="brand">simaa.cake</span>
+  <span>Магас, Ингушетия</span>
+  <a href="tel:+79674094319">+7 967 409-43-19</a>
+  <a href="https://instagram.com/simaa.cake" target="_blank" rel="noopener">Instagram @simaa.cake</a>
 </footer>
 
-<script>
-const PHONE="79674094319";
+<div class="viewer" id="viewer" hidden>
+  <div class="viewer-backdrop" data-close></div>
+  <blockquote class="card" id="vCard"></blockquote>
+  <p class="viewer-count" aria-live="polite"></p>
+  <button class="viewer-btn viewer-close" type="button" aria-label="Закрыть" data-close>&times;</button>
+  <button class="viewer-btn viewer-prev" type="button" aria-label="Предыдущий отзыв">&lsaquo;</button>
+  <button class="viewer-btn viewer-next" type="button" aria-label="Следующий отзыв">&rsaquo;</button>
+</div>
 
-/* Отзывы из хайлайта «Отзывы», дословно (эмодзи убраны). */
+<script>
+(()=>{
+const PHONE="79674094319";
+const reduceMotion=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- заставка ---------- */
+const hero=document.querySelector(".hero"), stage=document.getElementById("stage"), nav=document.getElementById("nav");
+function onScroll(){
+  const r=hero.getBoundingClientRect(), max=hero.offsetHeight-innerHeight;
+  const p=max>0?Math.min(1,Math.max(0,-r.top/max)):1;
+  stage.style.setProperty("--p",p.toFixed(3));
+  nav.classList.toggle("solid",scrollY>innerHeight*1.3);
+}
+addEventListener("scroll",onScroll,{passive:true}); onScroll();
+
+/* ---------- отзывы из хайлайта «Отзывы», дословно (эмодзи убраны) ---------- */
 const REVIEWS=[
-  {t:"Как раз хотела вам написать и в инсте отметить, безумно вкусно. Теперь буду у вас заказывать и тортики все Дал аьндале попробую"},
-  {t:"Он такой минипусичка и такой красивый вид, я в восторге, спасибо вам, буду у вас чаще заказывать"},
-  {t:"Да, доехал, он был идеальный, просто шикарный, как и было в моих представлениях, спасибо большое"},
-  {t:"Тортик очень красивый, аккуратненький. Очень вкусный, всё очень понравилось"},
-  {t:"Торт очень понравился, Ась! Очень украсил наш подарок. Красивый, вкусный."},
   {t:"Тортик доехал, он очень красивый. Спасибо большое за такую красоту! Мне безумно понравился! Вааа, я просто хочу смотреть на него, не отдавая."},
-  {t:"Тортик очень вкусным был, слопал сразу же"},
-  {t:"Лучше!!! Лучше, чем я ожидала"},
-  {t:"Наш тортик очень красивый был и вкусный, ещё раз спасибо большое"},
-  {t:"Я получила тортик, оформление очень красивое и сам тортик вживую очень миленький. Джазакаллаху Хайран"},
-  {t:"Давно не ела такие вкусные трайфлы, чизбомба вообще огонь",who:"@amiish.kiinss"},
-  {t:"Добрый вечер))) не могу не написать отзыв, этот тортик был ооооочень вкусный, вкуснее не пробовала"},
   {t:"Торт был очень красивый и ооочень вкусный! Все, кто попробовал, просили ваши контакты! Ещё и взялись за заказ так оперативно"},
+  {t:"Лучше!!! Лучше, чем я ожидала"},
+  {t:"Да, доехал, он был идеальный, просто шикарный, как и было в моих представлениях, спасибо большое"},
+  {t:"Добрый вечер))) не могу не написать отзыв, этот тортик был ооооочень вкусный, вкуснее не пробовала"},
+  {t:"Он такой минипусичка и такой красивый вид, я в восторге, спасибо вам, буду у вас чаще заказывать"},
+  {t:"Торт очень понравился, Ась! Очень украсил наш подарок. Красивый, вкусный."},
+  {t:"Давно не ела такие вкусные трайфлы, чизбомба вообще огонь",who:"@amiish.kiinss"},
+  {t:"Я получила тортик, оформление очень красивое и сам тортик вживую очень миленький. Джазакаллаху Хайран"},
+  {t:"Как раз хотела вам написать и в инсте отметить, безумно вкусно. Теперь буду у вас заказывать и тортики все Дал аьндале попробую"},
+  {t:"Тортик очень красивый, аккуратненький. Очень вкусный, всё очень понравилось"},
+  {t:"Тортик очень вкусным был, слопал сразу же"},
+  {t:"Наш тортик очень красивый был и вкусный, ещё раз спасибо большое"},
   {t:"Ма Ша Аллах, тортик был очень вкусный, ну как всегда сделали, как я хотела"},
   {t:"Торт очень вкусный, особенно крем…"},
 ];
+const tone=i=>["","alt","pink"][i%3];
+const cardHTML=r=>`<p>${r.t}</p>`+(r.who?`<cite>${r.who}</cite>`:"");
 
-/* Надписи с её тортов (из хайлайта «Работы») */
-const WALL=[
-  {text:"Справка.|Хронический|воздухан", fill:"#FFFFFF", pipe:"#F2C4CC", ink:"#6B4B50"},
-  {text:"мой космос|35",               fill:"#2E3A6E", pipe:"#F3F0FF", ink:"#F6D98E", doodles:["star@58,62","star@142,70"]},
-  {text:"love you",                     fill:"#FFF4F2", pipe:"#fff",    ink:"#C8324F", doodles:["heart@100,140"]},
-  {text:"Мама, спасибо|что ты есть",    fill:"#FFE3D3", pipe:"#fff",    ink:"#C8324F", doodles:["heart@60,64","heart@142,140"]},
-  {text:"16",                           fill:"#F9C9D3", pipe:"#fff",    ink:"#C8324F", bows:true},
-  {text:"1 месяц",                      fill:"#CFE2F4", pipe:"#fff",    ink:"#4F7DAE", doodles:["cloud@100,146"]},
-  {text:"Любить|и бесить тебя|всегда буду", fill:"#FBD6DD", pipe:"#fff", ink:"#9C2E4A"},
-  {text:"hello 16",                     fill:"#FFFFFF", pipe:"#F7C6D0", ink:"#C8324F", doodles:["heart@56,62"]},
-  {text:"Лучший твой|подарочек –|это я", fill:"#FFE9DA", pipe:"#fff",   ink:"#B4553F"},
-];
-
-/* ---------- торт сверху, «расписанный кремом» ---------- */
-const DOODLES={
-  heart:'<path d="M0 4C-2-2-10-2-10 4c0 5 10 11 10 11s10-6 10-11C10-2 2-2 0 4Z"/>',
-  swirl:'<path d="M0 0c0-3 4-3 4 0 0 5-8 5-8 0 0-7 12-7 12 0 0 9-16 9-16 0"/>',
-  cloud:'<path d="M-18 8c-8 0-9-10-2-12 1-8 11-10 15-4 4-8 17-7 18 1 8-2 13 7 8 11 6 1 6 4 3 4H-18Z"/>',
-  rainbow:'<path d="M-22 6a22 22 0 0 1 44 0M-15 6a15 15 0 0 1 30 0M-8 6a8 8 0 0 1 16 0"/>',
-  sun:'<circle r="7"/><path d="M0-13v-5M0 13v5M-13 0h-5M13 0h5M-9-9l-4-4M9 9l4 4M9-9l4-4M-9 9l-4 4"/>',
-  star:'<path d="M0-9l2.5 6.5L9 0l-6.5 2.5L0 9l-2.5-6.5L-9 0l6.5-2.5Z"/>',
-};
-function topCake(o){
-  const fill=o.fill, pipe=o.pipe||"#fff", ink=o.ink||pipe;
-  let shells="";
-  for(let i=0;i<30;i++){const a=i/30*Math.PI*2;
-    shells+=`<ellipse cx="${(100+87*Math.cos(a)).toFixed(1)}" cy="${(100+87*Math.sin(a)).toFixed(1)}" rx="7.5" ry="5.4" transform="rotate(${(a*180/Math.PI+90).toFixed(0)} ${(100+87*Math.cos(a)).toFixed(1)} ${(100+87*Math.sin(a)).toFixed(1)})"/>`;}
-  let dots="";
-  for(let i=0;i<40;i++){const a=i/40*Math.PI*2;
-    dots+=`<circle cx="${(100+73*Math.cos(a)).toFixed(1)}" cy="${(100+73*Math.sin(a)).toFixed(1)}" r="1.5"/>`;}
-  const dd=(o.doodles||[]).map(s=>{const [k,p]=s.split("@");const [x,y]=p.split(",");
-    return `<g transform="translate(${x} ${y})">${DOODLES[k]}</g>`;}).join("");
-  let bows="";
-  if(o.bows){[[100,22],[30,118],[170,118]].forEach(([x,y])=>{bows+=`<g transform="translate(${x} ${y})" fill="${ink}"><path d="M0 0C-5-6-14-6-14 0s9 6 14 0Z"/><path d="M0 0C5-6 14-6 14 0S5 6 0 0Z"/><circle r="3"/></g>`;});}
-  let txt="";
-  if(o.text){
-    const lines=o.text.split("|"); const L=Math.max(...lines.map(l=>l.length));
-    const fs=L<=2?64:L<=4?42:L<=8?30:L<=11?21:17;
-    const lh=fs*1.08, y0=100+fs*.35-(lines.length-1)*lh/2;
-    txt=`<text text-anchor="middle" font-family="Yeseva One, Georgia, serif" font-size="${fs}" fill="${ink}">`+
-      lines.map((l,i)=>`<tspan x="100" y="${(y0+i*lh).toFixed(1)}">${l}</tspan>`).join("")+`</text>`;
-  }
-  return `<svg class="top" viewBox="0 0 200 200" role="img" aria-label="${o.text?("Бенто с надписью «"+o.text.replace(/\|/g," ")+"»"):"Бенто"}">
-    <circle cx="100" cy="100" r="96" fill="${fill}"/>
-    <circle cx="100" cy="100" r="96" fill="url(#shade)"/>
-    <g fill="${pipe}" opacity=".55">${dots}</g>
-    <g fill="${pipe}">${shells}</g>
-    <g fill="none" stroke="${ink}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".9">${dd}</g>
-    ${bows}${txt}
-  </svg>`;
-}
-document.body.insertAdjacentHTML("afterbegin",`<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <radialGradient id="shade" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".7" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".07"/></radialGradient></defs></svg>`);
-document.querySelectorAll("[data-top]").forEach(el=>{el.outerHTML=topCake(JSON.parse(el.dataset.top));});
-document.getElementById("wall").innerHTML=WALL.map(topCake).join("");
-
-/* ---------- отзывы, раскиданные вразнобой ---------- */
-const box=document.getElementById("bubbles");
-let seed=11; const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
-const tones=["","pink","peach","","peach","pink"];
-const msgs=REVIEWS.map((r,i)=>{
-  const m=document.createElement("blockquote");
-  m.className="msg "+tones[i%tones.length];
-  m.style.margin="0";
-  m.innerHTML=`<p>${r.t}</p>`+(r.who?`<cite>${r.who}</cite>`:"");
-  m._w=.7+rnd()*.22; m._x=rnd(); m._y=rnd();
-  m.style.setProperty("--r",(rnd()*6-3).toFixed(1)+"deg");
-  box.appendChild(m); return m;
+/* Веер: [наклон, подъём в px, ширина]. Зафиксирован, чтобы выглядел одинаково при каждом визите. */
+const stems=[[-46,30,.9],[-34,150,.95],[-22,80,1],[-11,240,1.05],[0,310,1.05],[11,225,1],[22,100,1],[34,170,.95],[46,20,.9]];
+const bouquet=document.getElementById("bouquet");
+const narrow=()=>innerWidth<760;
+const thumbs=stems.map(([r,lift,s],i)=>{
+  const b=document.createElement("button");
+  b.type="button";
+  b.setAttribute("aria-label",`Открыть отзыв ${i+1} из ${REVIEWS.length}`);
+  b.style.setProperty("--r",r*(narrow()?.78:1)+"deg");
+  b.style.setProperty("--lift",lift*(narrow()?.55:1)+"px");
+  b.style.setProperty("--w",`calc(clamp(112px,13vw,158px) * ${s})`);
+  b.style.setProperty("--z",String(10-Math.abs(i-4)));
+  b.style.setProperty("--delay",(i*.08).toFixed(2)+"s");
+  b.innerHTML=`<span class="card ${tone(i)}">${cardHTML(REVIEWS[i])}</span>`;
+  b.addEventListener("click",()=>openViewer(i));
+  bouquet.append(b);
+  return b;
 });
-function layout(){
-  if(innerWidth<=960){msgs.forEach(m=>{m.style.left=m.style.top=m.style.width="";});box.style.height="";return;}
-  const cols=3, W=box.clientWidth, cw=W/cols, h=[30,0,70];
-  msgs.forEach(m=>{
-    const w=cw*m._w; m.style.width=w+"px";
-    const c=h.indexOf(Math.min(...h));
-    m.style.left=(c*cw+m._x*(cw-w))+"px"; m.style.top=h[c]+"px";
-    h[c]+=m.offsetHeight+28+m._y*44;
-  });
-  box.style.height=Math.max(...h)+"px";
+if(!reduceMotion&&"IntersectionObserver" in window){
+  bouquet.classList.add("ready");
+  const io=new IntersectionObserver(([e])=>{
+    if(!e.isIntersecting)return;
+    io.disconnect();
+    requestAnimationFrame(()=>bouquet.classList.add("bloom"));
+    setTimeout(()=>bouquet.classList.add("settled"),1600);
+  },{threshold:.35});
+  io.observe(bouquet);
 }
-layout(); addEventListener("resize",layout);
-document.fonts&&document.fonts.ready.then(layout);
+
+/* ---------- полноэкранный просмотр ---------- */
+const viewer=document.getElementById("viewer"), vCard=document.getElementById("vCard"), vCount=viewer.querySelector(".viewer-count");
+const boxEl=bouquet.querySelector(".box");
+const DUR=reduceMotion?0:420;
+let idx=-1, busy=false, lastFocus=null;
+
+function fill(i){
+  vCard.className="card "+tone(i);
+  vCard.innerHTML=cardHTML(REVIEWS[i]);
+  vCount.textContent=`${i+1} из ${REVIEWS.length}`;
+}
+function center(){
+  vCard.style.transform="none";
+  const w=vCard.offsetWidth, h=vCard.offsetHeight;
+  return {left:(innerWidth-w)/2, top:(innerHeight-h)/2, width:w, height:h};
+}
+const at=(from,to)=>`translate(${from.left}px,${from.top}px) scale(${from.width/to.width})`;
+function origin(i){
+  if(thumbs[i])return thumbs[i].querySelector(".card").getBoundingClientRect();
+  const r=boxEl.getBoundingClientRect();
+  return {left:r.left+r.width/2-40, top:r.top, width:80, height:100};
+}
+async function openViewer(i){
+  if(busy)return;
+  busy=true; idx=i; lastFocus=document.activeElement;
+  fill(i);
+  viewer.hidden=false;
+  const to=center(), from=origin(i);
+  if(thumbs[i])thumbs[i].style.visibility="hidden";
+  requestAnimationFrame(()=>viewer.classList.add("open"));
+  document.body.style.overflow="hidden";
+  await vCard.animate([{transform:at(from,to)},{transform:at(to,to)}],{duration:DUR,easing:"cubic-bezier(.2,.8,.2,1)",fill:"forwards"}).finished;
+  viewer.querySelector(".viewer-close").focus();
+  busy=false;
+}
+async function step(dir){
+  if(busy||idx<0)return;
+  busy=true;
+  const n=(idx+dir+REVIEWS.length)%REVIEWS.length;
+  const cur=center();
+  await vCard.animate([{transform:at(cur,cur),opacity:1},{transform:at({...cur,left:cur.left-dir*60},cur),opacity:0}],{duration:DUR*.5,easing:"ease-in",fill:"forwards"}).finished;
+  if(thumbs[idx])thumbs[idx].style.visibility="";
+  if(thumbs[n])thumbs[n].style.visibility="hidden";
+  idx=n; fill(n);
+  const to=center();
+  await vCard.animate([{transform:at({...to,left:to.left+dir*60},to),opacity:0},{transform:at(to,to),opacity:1}],{duration:DUR*.6,easing:"cubic-bezier(.2,.8,.2,1)",fill:"forwards"}).finished;
+  busy=false;
+}
+async function closeViewer(){
+  if(busy||idx<0)return;
+  busy=true;
+  const to=center(), back=origin(idx);
+  viewer.classList.remove("open");
+  await vCard.animate([{transform:at(to,to),opacity:1},{transform:at(back,to),opacity:thumbs[idx]?1:0}],{duration:DUR,easing:"cubic-bezier(.4,0,.2,1)",fill:"forwards"}).finished;
+  if(thumbs[idx])thumbs[idx].style.visibility="";
+  viewer.hidden=true;
+  vCard.getAnimations().forEach(a=>a.cancel());
+  document.body.style.overflow="";
+  idx=-1; busy=false;
+  lastFocus&&lastFocus.focus();
+}
+let swiped=false;
+viewer.querySelectorAll("[data-close]").forEach(el=>el.addEventListener("click",()=>{if(swiped){swiped=false;return;}closeViewer();}));
+viewer.querySelector(".viewer-prev").addEventListener("click",()=>step(-1));
+viewer.querySelector(".viewer-next").addEventListener("click",()=>step(1));
+addEventListener("keydown",e=>{
+  if(viewer.hidden)return;
+  if(e.key==="Escape")closeViewer();
+  if(e.key==="ArrowRight")step(1);
+  if(e.key==="ArrowLeft")step(-1);
+});
+let sx=null;
+viewer.addEventListener("pointerdown",e=>{sx=e.clientX;});
+viewer.addEventListener("pointerup",e=>{
+  if(sx==null)return;
+  const dx=e.clientX-sx; sx=null;
+  if(Math.abs(dx)>50){swiped=true;setTimeout(()=>{swiped=false;},0);step(dx<0?1:-1);}
+});
 
 /* ---------- WhatsApp с готовым текстом ---------- */
 const wa=t=>`https://wa.me/${PHONE}?text=${encodeURIComponent(t)}`;
 document.querySelectorAll("[data-wa]").forEach(a=>a.href=wa("Здравствуйте! Хочу заказать бенто-торт"));
 document.querySelectorAll("[data-order]").forEach(a=>{a.href=wa(`Здравствуйте! Хочу заказать ${a.dataset.order}`);a.target="_blank";a.rel="noopener";});
-document.getElementById("year").textContent=new Date().getFullYear();
+})();
 </script>
 </body>
 </html>
